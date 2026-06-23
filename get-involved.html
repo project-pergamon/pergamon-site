@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Get Involved — Project Pergamon</title>
+  <meta name="description"
+    content="Support Project Pergamon as a donor, technical collaborator, preservation advisor, or institutional partner — or send us a message using the form.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:title" content="Get Involved — Project Pergamon">
+  <meta property="og:description"
+    content="Support Project Pergamon as a donor, technical collaborator, preservation advisor, or institutional partner.">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body><a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-light.svg" alt=""><span><span
+            class="wordmark">Project Pergamon</span><small>AI Preservation Archive</small></span></a>
+      <nav class="nav" id="nav" aria-label="Primary"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a
+          href="field-notes.html">Field Notes</a><a href="get-involved.html" aria-current="page">Get Involved</a></nav>
+      <div class="header-actions"><a class="btn btn-brick" href="get-involved.html#form">Support</a><button
+          class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">&#9776;</button></div>
+    </div>
+  </header>
+  <div class="scrim" id="scrim"></div>
+  <main id="main">
+    <section class="section surface-brick hero">
+      <div class="wrap">
+        <img class="emblem" src="assets/emblem-onband.svg" alt="">
+        <span class="eyebrow">Get involved</span>
+        <h1>Join the founding circle.</h1>
+      </div>
+    </section>
+
+    <section class="section surface-parchment">
+      <div class="wrap prose">
+        <p class="lead">If you want to help build a durable public record for open-weight AI, you can support the project
+          as a donor, advisor, technical collaborator, or institutional partner.</p>
+      </div>
+    </section>
+
+    <section class="section surface-parchment">
+      <div class="wrap">
+        <h2>Ways to help</h2>
+        <div class="cards three">
+          <div class="card">
+            <h3>Donor / founding supporter</h3>
+            <p>Help fund archival media, preservation workflow design, documentation, and the institutional groundwork.</p>
+          </div>
+          <div class="card">
+            <h3>Open-model engineer</h3>
+            <p>Help design the first preservation pass and its path to scale.</p>
+          </div>
+          <div class="card">
+            <h3>Archival storage specialist</h3>
+            <p>Tape workflows and migration planning.</p>
+          </div>
+          <div class="card">
+            <h3>Digital preservation advisor</h3>
+            <p>Provenance, metadata, and long-term custody.</p>
+          </div>
+          <div class="card">
+            <h3>Whitepaper co-author</h3>
+            <p>A technical whitepaper on the first preservation pass and its path to scale.</p>
+          </div>
+          <div class="card">
+            <h3>Institutional partner</h3>
+            <p>Bring a library, lab, or archive into the effort.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section surface-parchment" id="form">
+      <div class="wrap prose">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Introduce yourself.</h2>
+        <p>Interested in supporting Project Pergamon or getting involved? Use the form below and we&rsquo;ll route your
+          message to the right place. Prefer email? <a href="mailto:support@projectpergamon.ai">support@projectpergamon.ai</a>.</p>
+        <div class="lane-row">
+          <button type="button" class="lane-chip" data-lane="Support Pergamon">
+            <strong>Support Pergamon</strong>
+            <span>For donors, institutional supporters, and people who want to help sustain the project.</span>
+          </button>
+          <button type="button" class="lane-chip" data-lane="Get Involved">
+            <strong>Get Involved</strong>
+            <span>For researchers, archivists, technical collaborators, and advisors who want to contribute.</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="form-success" id="formSuccess" role="status" tabindex="-1" hidden>
+          <h2>Thank you for reaching out.</h2>
+          <p>We&rsquo;ve received your inquiry and will be in touch soon.</p>
+        </div>
+
+        <form class="form" id="contactForm" novalidate aria-describedby="formErrorSummary">
+          <div class="error-summary" id="formErrorSummary" role="alert" hidden></div>
+
+          <div class="field">
+            <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required aria-required="true">
+            <p class="error-text" id="err-fullName" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-required="true">
+            <p class="error-text" id="err-email" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="category">What are you reaching out about? <span class="req" aria-hidden="true">*</span></label>
+            <select id="category" name="category" required aria-required="true">
+              <option value="" selected disabled>Choose one&hellip;</option>
+              <option value="Support Pergamon">Support Pergamon</option>
+              <option value="Get Involved">Get Involved</option>
+              <option value="Institutional Partnership">Institutional Partnership</option>
+              <option value="Press / Research Inquiry">Press / Research Inquiry</option>
+              <option value="General Question">General Question</option>
+            </select>
+            <p class="error-text" id="err-category" hidden></p>
+          </div>
+
+          <fieldset class="conditional" id="condSupport" hidden>
+            <legend>About your support</legend>
+            <div class="field">
+              <label for="supportType">What kind of support are you considering?</label>
+              <select id="supportType" name="supportType">
+                <option value="" selected>Choose one&hellip;</option>
+                <option>One-time donation</option>
+                <option>Ongoing support</option>
+                <option>Major gift / founding support</option>
+                <option>Institutional funding conversation</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="supportLevel">Estimated support level</label>
+              <select id="supportLevel" name="supportLevel">
+                <option value="" selected>Choose one&hellip;</option>
+                <option>Under $500</option>
+                <option>$500&ndash;$2,500</option>
+                <option>$2,500&ndash;$10,000</option>
+                <option>$10,000+</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset class="conditional" id="condInvolved" hidden>
+            <legend>About your involvement</legend>
+            <div class="field">
+              <label for="expertise">Area of expertise</label>
+              <input type="text" id="expertise" name="expertise">
+            </div>
+            <div class="field">
+              <label for="availability">Availability / level of involvement</label>
+              <select id="availability" name="availability">
+                <option value="" selected>Choose one&hellip;</option>
+                <option>One conversation</option>
+                <option>Occasional advice</option>
+                <option>Ongoing collaboration</option>
+                <option>Formal partnership</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="organization">Organization <span class="opt">(optional)</span></label>
+              <input type="text" id="organization" name="organization" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="role">Role / Title <span class="opt">(optional)</span></label>
+              <input type="text" id="role" name="role" autocomplete="organization-title">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="link">Website or LinkedIn <span class="opt">(optional)</span></label>
+            <input type="url" id="link" name="link" inputmode="url" placeholder="https://">
+            <p class="error-text" id="err-link" hidden></p>
+          </div>
+
+          <fieldset class="field">
+            <legend>How would you like to help? <span class="opt">(optional)</span></legend>
+            <div class="checkbox-grid">
+              <label class="check"><input type="checkbox" name="help" value="Financial support"> Financial support</label>
+              <label class="check"><input type="checkbox" name="help" value="Technical collaboration"> Technical collaboration</label>
+              <label class="check"><input type="checkbox" name="help" value="Archival / preservation expertise"> Archival / preservation expertise</label>
+              <label class="check"><input type="checkbox" name="help" value="Research collaboration"> Research collaboration</label>
+              <label class="check"><input type="checkbox" name="help" value="Institutional partnership"> Institutional partnership</label>
+              <label class="check"><input type="checkbox" name="help" value="Advisory support"> Advisory support</label>
+              <label class="check"><input type="checkbox" name="help" value="Press / media"> Press / media</label>
+              <label class="check"><input type="checkbox" name="help" value="Other"> Other</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+            <p class="error-text" id="err-message" hidden></p>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="company_website">Company website</label>
+            <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" hidden></div>
+
+          <div class="field consent">
+            <label class="check"><input type="checkbox" id="consent" name="consent" required aria-required="true">
+              I understand my information will be used to respond to this inquiry. <span class="req"
+                aria-hidden="true">*</span></label>
+            <p class="error-text" id="err-consent" hidden></p>
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" class="btn btn-brick" id="submitBtn">Send Inquiry</button>
+          </div>
+          <p class="form-note" id="formNote" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer surface-chocolate section" style="padding-block:clamp(2.5rem,6vw,4rem)">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-reversed.svg" alt=""
+          style="height:40px"><span class="wordmark" style="font-size:1.3rem">Project Pergamon</span></a>
+      <p class="foot-tagline">Preserving open-weight AI so it can be reconstructed after censorship, catastrophe, or
+        institutional loss.</p>
+      <nav class="foot-nav" aria-label="Footer"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a
+          href="field-notes.html">Field Notes</a><a href="get-involved.html">Get Involved</a></nav>
+    </div>
+  </footer>
+  <script src="site.js"></script>
+  <script>
+    var FORM_ENDPOINT = "https://formspree.io/f/mwvdpway";
+
+    var form = document.getElementById('contactForm');
+    var category = document.getElementById('category');
+    var condSupport = document.getElementById('condSupport');
+    var condInvolved = document.getElementById('condInvolved');
+    var successEl = document.getElementById('formSuccess');
+    var noteEl = document.getElementById('formNote');
+    var summaryEl = document.getElementById('formErrorSummary');
+    var submitBtn = document.getElementById('submitBtn');
+    var fields = {
+      fullName: document.getElementById('fullName'),
+      email: document.getElementById('email'),
+      message: document.getElementById('message'),
+      link: document.getElementById('link'),
+      consent: document.getElementById('consent'),
+      honeypot: document.getElementById('company_website')
+    };
+
+    function syncConditionals() {
+      condSupport.hidden = category.value !== 'Support Pergamon';
+      condInvolved.hidden = category.value !== 'Get Involved';
+    }
+    category.addEventListener('change', syncConditionals);
+
+    document.querySelectorAll('.lane-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        category.value = chip.dataset.lane;
+        document.querySelectorAll('.lane-chip').forEach(function (c) { c.classList.toggle('active', c === chip); });
+        syncConditionals();
+        category.dispatchEvent(new Event('change'));
+        category.focus();
+      });
+    });
+
+    function setError(id, msg) {
+      var el = document.getElementById('err-' + id);
+      var input = document.getElementById(id);
+      if (el) { el.textContent = msg; el.hidden = false; }
+      if (input) { input.setAttribute('aria-invalid', 'true'); input.setAttribute('aria-describedby', 'err-' + id); }
+    }
+    function clearError(id) {
+      var el = document.getElementById('err-' + id);
+      var input = document.getElementById(id);
+      if (el) { el.hidden = true; el.textContent = ''; }
+      if (input) { input.removeAttribute('aria-invalid'); }
+    }
+
+    function validate() {
+      var errors = [];
+      ['fullName', 'email', 'category', 'message', 'link', 'consent'].forEach(clearError);
+
+      var name = fields.fullName.value.trim();
+      if (!name) errors.push(['fullName', 'Please enter your name.']);
+
+      var email = fields.email.value.trim();
+      if (!email) errors.push(['email', 'Please enter your email address.']);
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push(['email', 'Please enter a valid email address.']);
+
+      if (!category.value) errors.push(['category', 'Please choose what you are reaching out about.']);
+
+      if (!fields.message.value.trim()) errors.push(['message', 'Please add a short message.']);
+
+      var link = fields.link.value.trim();
+      if (link && !/^https?:\/\/.+\..+/.test(link)) errors.push(['link', 'Please enter a full URL starting with https://']);
+
+      if (!fields.consent.checked) errors.push(['consent', 'Please confirm before submitting.']);
+
+      errors.forEach(function (pair) { setError(pair[0], pair[1]); });
+      return errors;
+    }
+
+    function showSummary(errors) {
+      if (!errors.length) { summaryEl.hidden = true; return; }
+      summaryEl.textContent = 'Please fix ' + errors.length + (errors.length === 1 ? ' field' : ' fields') + ' below.';
+      summaryEl.hidden = false;
+      summaryEl.focus();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (fields.honeypot.value) { form.hidden = true; successEl.hidden = false; return; }
+
+      var errors = validate();
+      if (errors.length) { showSummary(errors); return; }
+      summaryEl.hidden = true;
+
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      data.help = Array.from(form.querySelectorAll('input[name="help"]:checked')).map(function (c) { return c.value; });
+      data.lane = (category.value === 'Support Pergamon' || category.value === 'Get Involved') ? category.value : '';
+      data.submittedAt = new Date().toISOString();
+      delete data.company_website;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      function onDelivered() {
+        form.hidden = true;
+        successEl.hidden = false;
+        successEl.focus();
+        if (!FORM_ENDPOINT) {
+          noteEl.hidden = false;
+          successEl.insertAdjacentHTML('beforeend',
+            '<p class="preview-tag">Preview mode — connect a form endpoint to actually receive this inquiry.</p>');
+        }
+      }
+      function onError() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Inquiry';
+        summaryEl.textContent = 'Something went wrong sending your message. Please try again, or email support@projectpergamon.ai directly.';
+        summaryEl.hidden = false;
+        summaryEl.focus();
+      }
+
+      if (FORM_ENDPOINT) {
+        fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (res) {
+          if (!res.ok) throw new Error('Bad response ' + res.status);
+          onDelivered();
+        }).catch(onError);
+      } else {
+        console.warn('FORM_ENDPOINT is empty: submission was not delivered.', data);
+        onDelivered();
+      }
+    });
+  </script>
+</body>
+
+</html>

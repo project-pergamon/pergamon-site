@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Backup Standard for the Archive — Project Pergamon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Your project stylesheet (matches styles.css in your project). -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- ============================================================
+     Page-specific additions only — NOT duplicated from your stylesheet.
+     These are the rules your .css doesn't already define. Keep them
+     here, or move them into your stylesheet if you prefer one source.
+     All values use your existing tokens.
+     ============================================================ -->
+<style>
+.target{background:var(--cream);border-left:3px solid var(--brick);border-radius:var(--radius);
+        padding:1.05rem 1.3rem;margin-top:1.9rem;max-width:var(--measure)}
+.target .eyebrow{margin:0 0 .35rem}
+.target p{margin:0;font-weight:600;font-size:1.06rem;line-height:1.5}
+.surface-chocolate .target{background:rgba(243,234,214,.06);border-left-color:var(--cream)}
+.surface-chocolate .target .eyebrow{color:var(--muted-cream)}
+
+.note{color:var(--muted-ink);margin-top:1.4rem;max-width:var(--measure)}
+
+/* separation ladder — safety encoded as solidity, since the palette has no green */
+.ladder{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin:2rem 0 .65rem;padding:0}
+.ladder .rung{padding:1rem .8rem 1.05rem;border-radius:var(--radius);min-height:124px;
+              display:flex;flex-direction:column;gap:.2rem;border:1px solid var(--hairline)}
+.ladder .rung strong{font-family:Marcellus,serif;font-weight:400;font-size:1.02rem;line-height:1.12}
+.ladder .rung span{font-size:.82rem;color:var(--muted-ink)}
+.ladder .mark{font-family:Spectral,serif;font-weight:600;font-size:1.1rem;margin-bottom:.2rem}
+.ladder .r0,.ladder .r1{background:var(--cream)}
+.ladder .r2{background:var(--muted-cream)}
+.ladder .r3{background:var(--pompeii);color:var(--cream)}
+.ladder .r4{background:var(--brick);color:var(--cream)}
+.ladder .r5{background:var(--chocolate);color:var(--cream)}
+.ladder .r3 span,.ladder .r4 span,.ladder .r5 span{color:var(--muted-cream)}
+.ladder .r0 .mark,.ladder .r1 .mark,.ladder .r2 .mark{color:var(--sienna)}
+.ladder .r3 .mark,.ladder .r4 .mark,.ladder .r5 .mark{color:var(--cream)}
+.ladder-axis{display:flex;justify-content:space-between;font-family:Marcellus,serif;
+             text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--muted-ink)}
+@media(max-width:760px){.ladder{grid-template-columns:1fr 1fr}.ladder .rung{min-height:0}}
+
+.card .tag{font-family:Spectral,serif;font-weight:600;color:var(--chocolate)}
+
+/* big-figure stat cards (reuse .cards/.card) */
+.card .fig{font-family:Marcellus,serif;font-size:1.7rem;line-height:1;color:var(--chocolate);
+           display:block;margin-bottom:.3rem}
+
+/* numbered LOCKSS questions in the FAQ */
+.faq summary .qn{font-family:Marcellus,serif;color:var(--sienna);margin-right:.7rem}
+
+/* cost box */
+.costbox{background:var(--cream);border:1.5px solid var(--hairline);border-radius:var(--radius);
+         padding:1.5rem 1.6rem;max-width:38rem;margin-top:2rem}
+.costbox .eyebrow{margin-bottom:1rem}
+.costbox .row{display:flex;justify-content:space-between;gap:1.2rem;padding:.55rem 0;
+              border-bottom:1px solid var(--hairline);font-family:Spectral,serif}
+.costbox .row:last-of-type{border-bottom:0}
+.costbox .row .val{font-weight:600;white-space:nowrap}
+.costbox .total{border-bottom:0;border-top:2px solid var(--sienna);margin-top:.3rem;padding-top:.75rem}
+.costbox .total .val{color:var(--brick);font-size:1.08rem}
+.costbox .foot{color:var(--muted-ink);font-size:.88rem;margin:1rem 0 0;line-height:1.5}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="Project Pergamon — home">
+      <svg class="emblem" width="44" height="44" viewBox="0 0 48 48" role="img" aria-label="Pergamon emblem">
+        <path d="M3 15 L24 4 L45 15 Z" fill="#A6543E"/>
+        <rect x="5" y="17" width="38" height="3" fill="currentColor"/>
+        <rect x="9" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="17.5" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="26.9" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="35.4" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="5" y="40" width="38" height="3.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark">Pergamon<small>Open-Weight Model Archive</small></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#tape">Tape</a>
+      <a href="#how-many">Copies</a>
+      <a href="#how-far">Distance</a>
+      <a href="#institutions">Stewards</a>
+      <a href="#principles">Principles</a>
+      <a href="#standard" aria-current="page">The Standard</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+  </div>
+</header>
+<div class="scrim" hidden></div>
+
+<main id="main">
+
+  <!-- Intro -->
+  <section class="section hero">
+    <div class="wrap prose">
+      <span class="eyebrow">Preservation Policy</span>
+      <h1>A Backup Standard for the Archive</h1>
+      <p class="lead">How many copies, how far apart, and held by whom — the preservation field's
+      settled answers, mapped to Pergamon's three threats: catastrophe, censorship, and institutional loss.</p>
+    </div>
+  </section>
+
+  <!-- The medium -->
+  <section id="tape" class="section">
+    <div class="wrap">
+      <span class="eyebrow">The Medium</span>
+      <h2>Why it fits on tape</h2>
+      <p class="prose">One LTO-9 cartridge holds 18&nbsp;TB. A complete copy of today's open-weight frontier — every major
+      model from the 1.5B class up to the 1.6-trillion-parameter DeepSeek V4&nbsp;Pro — comes to roughly 8.6&nbsp;TB at full
+      precision: under half of a single cartridge. Trained weights are near-incompressible, so native capacity is the honest
+      figure; tape's hardware compression buys nothing on model data. Off the drive a cartridge is air-gapped and immutable
+      by default, rated for about thirty years, at the lowest cost per terabyte of any medium and zero idle power. One full
+      copy is a single, half-used cartridge — and seven copies is seven cartridges. The constraint was never storage.</p>
+
+      <div class="cards">
+        <div class="card"><span class="fig">18 TB</span><p>One LTO-9 cartridge — native, uncompressed capacity.</p></div>
+        <div class="card"><span class="fig">&asymp; 8.6 TB</span><p>A full copy of the frontier: every major open model, smallest to largest.</p></div>
+        <div class="card"><span class="fig">&asymp; 48%</span><p>Of a single cartridge filled by that copy. The rest is headroom for what comes next.</p></div>
+        <div class="card"><span class="fig">~30 yr</span><p>Archival media life (barium ferrite), WORM-capable and air-gapped off the drive.</p></div>
+      </div>
+
+      <div class="costbox">
+        <span class="eyebrow">What one node costs</span>
+        <div class="row"><span class="lbl">LTO-9 drive — the reader · one-time, reusable</span><span class="val">$4,000&ndash;7,600</span></div>
+        <div class="row"><span class="lbl">One 18&nbsp;TB cartridge — holds a full copy, with room to spare</span><span class="val">&asymp; $130</span></div>
+        <div class="row total"><span class="lbl">Stand up a steward &amp; write the first copy</span><span class="val">&asymp; $4,100&ndash;7,700</span></div>
+        <p class="foot">Indicative retail, mid-2026. All but ~$130 of that is the drive — a one-time cost per steward. After
+        it, every further copy of the <em>entire</em> frontier is one ~$130 cartridge: about $7 per terabyte, on media rated
+        for ~30 years. Seven copies &asymp; $900 of tape, plus each steward's drive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 · How many copies? -->
+  <section id="how-many" class="section">
+    <div class="wrap">
+      <span class="eyebrow">01 — Redundancy</span>
+      <h2>How many copies?</h2>
+      <p class="prose">Guards against media failure and catastrophe. The field's thresholds run from
+      baseline IT practice up to preservation grade:</p>
+      <div class="cards">
+        <div class="card">
+          <h3>3-2-1 · baseline</h3>
+          <p>Three copies, on two media types, with one off-site. Endorsed by CISA and NIST — the floor, not the goal.</p>
+        </div>
+        <div class="card">
+          <h3>3-2-1-1-0 · modern</h3>
+          <p>Adds one air-gapped or immutable copy, and zero errors — proven by routine restore tests.</p>
+        </div>
+        <div class="card">
+          <h3>NDSA Level 4 · preservation</h3>
+          <p>At least three complete copies, in locations with different disaster threats.</p>
+        </div>
+        <div class="card">
+          <h3>LOCKSS · enhancement</h3>
+          <p>Four or more — and, by design, many more — so consensus among independent, mutually-distrusting copies defines truth, with no central authority to corrupt.</p>
+        </div>
+      </div>
+      <p class="note">Tape is WORM and air-gapped by nature, so every copy already satisfies the modern
+      rule's &ldquo;+1 offline / immutable&rdquo; leg for free.</p>
+      <div class="target">
+        <span class="eyebrow">Pergamon target</span>
+        <p>&ge; 7 independent tape masters &mdash; an odd quorum that can outvote two corrupted copies and still hold a
+        majority with several offline &middot; each WORM + air-gapped &middot; fixity-checked on a fixed cadence (the &ldquo;0&rdquo;).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · How far apart? -->
+  <section id="how-far" class="section">
+    <div class="wrap">
+      <span class="eyebrow">02 — Separation</span>
+      <h2>How far apart?</h2>
+      <p class="prose">Distance is only a proxy. The real target: no single event — quake, flood, grid
+      failure, or a government order — can reach two copies at once. Separate by disaster-threat zone, and,
+      against censorship, by legal jurisdiction.</p>
+
+      <ol class="ladder" aria-label="Separation from least to most resilient">
+        <li class="rung r0"><span class="mark" aria-hidden="true">&#10007;</span><strong>Same room</strong><span>one fire ends it</span></li>
+        <li class="rung r1"><span class="mark" aria-hidden="true">&#10007;</span><strong>Same building</strong><span>one outage, one flood</span></li>
+        <li class="rung r2"><span class="mark" aria-hidden="true">&#10007;</span><strong>Same city</strong><span>one grid, one quake</span></li>
+        <li class="rung r3"><span class="mark" aria-hidden="true">&#9651;</span><strong>Same region</strong><span>correlated disasters</span></li>
+        <li class="rung r4"><span class="mark" aria-hidden="true">&#10003;</span><strong>Different disaster zones</strong><span>NDSA Level 4</span></li>
+        <li class="rung r5"><span class="mark" aria-hidden="true">&#10003;</span><strong>Different jurisdictions</strong><span>censorship-resistant</span></li>
+      </ol>
+      <div class="ladder-axis"><span>Less safe</span><span>More safe</span></div>
+
+      <div class="target">
+        <span class="eyebrow">Pergamon target</span>
+        <p>&ge; 3 different disaster-threat zones, spanning &ge; 2 legal jurisdictions — at least one beyond
+        the reach of the likeliest censoring state.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · Which institutions? -->
+  <section id="institutions" class="section">
+    <div class="wrap">
+      <span class="eyebrow">03 — Stewardship</span>
+      <h2>Which institutions?</h2>
+      <p class="prose">If one organization holds every copy, survival depends on that organization's funding
+      and politics — historically a larger cause of real-world loss than any hardware failure (LOCKSS). Mix
+      institution types so financial, legal, and political failure modes don't correlate.</p>
+      <div class="cards three">
+        <div class="card">
+          <h3>National Library</h3>
+          <p><span class="tag">Holds:</span> a durable legal-deposit mandate. <span class="tag">Exposed to:</span> alignment with the same state that may censor.</p>
+        </div>
+        <div class="card">
+          <h3>University Library</h3>
+          <p><span class="tag">Holds:</span> mission alignment, global spread. <span class="tag">Exposed to:</span> budget and funding-cycle volatility.</p>
+        </div>
+        <div class="card">
+          <h3>Independent Nonprofit</h3>
+          <p><span class="tag">Holds:</span> a pure mission and agility. <span class="tag">Exposed to:</span> financial fragility and litigation.</p>
+        </div>
+        <div class="card">
+          <h3>Government Archive</h3>
+          <p><span class="tag">Holds:</span> a funded public mandate. <span class="tag">Exposed to:</span> political capture and policy reversal.</p>
+        </div>
+        <div class="card">
+          <h3>Community / Volunteer</h3>
+          <p><span class="tag">Holds:</span> a censorship-resistant swarm. <span class="tag">Exposed to:</span> coordination and continuity risk.</p>
+        </div>
+        <div class="card">
+          <h3>Commercial Cold Storage</h3>
+          <p><span class="tag">Holds:</span> deep SLAs and scale. <span class="tag">Exposed to:</span> lock-in, price hikes, discontinuation.</p>
+        </div>
+      </div>
+      <p class="note">Crossing borders makes recruitment a small act of diplomacy &mdash; and that is the point. Each
+      steward is an independent partner, not a branch office; the same breadth that makes the archive hard to seize
+      makes it hard to capture.</p>
+      <div class="target">
+        <span class="eyebrow">Pergamon target</span>
+        <p>&ge; 3 distinct institution types &middot; &ge; 1 mission-driven nonprofit &middot; &ge; 1 steward
+        outside the censoring jurisdiction &middot; never single-org or single-state custody.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grounding · the LOCKSS model -->
+  <section id="principles" class="section">
+    <div class="wrap">
+      <span class="eyebrow">The Standard, Grounded</span>
+      <h2>Measured against the LOCKSS model</h2>
+      <p class="prose">Stanford's LOCKSS program &mdash; <em>Lots Of Copies Keep Stuff Safe</em> &mdash; is the closest
+      working model to what Pergamon is building, and the clearest account of what an <em>archival standard</em> actually
+      requires. Its founding premise is bracing: the greatest threat to digital information is not media decay or format
+      obsolescence but <strong>ourselves</strong> &mdash; deliberate and accidental human action, and the failure of the
+      organizations meant to be custodians. That is exactly why Pergamon's named threats are censorship and institutional
+      loss, not catastrophe alone. LOCKSS frames a robust system as six questions; here is how the standard answers each.</p>
+
+      <div class="faq">
+        <details open>
+          <summary><span class="qn">01</span>Is it built on a realistic threat model?</summary>
+          <p>Yes. The standard plans for catastrophe (media failure and natural disaster), censorship (deliberate,
+          targeted human action), and institutional loss (the slow erosion of funding and political will) &mdash; the
+          same human and organizational threats LOCKSS foregrounds, rather than treating hardware as the only enemy.</p>
+        </details>
+        <details>
+          <summary><span class="qn">02</span>Does it avoid a single, corruptible fixity store?</summary>
+          <p>Yes &mdash; the load-bearing principle. There is no canonical hash registry whose compromise would quietly
+          poison every copy. Fixity is the <em>consensus</em> of the seven independent, mutually-distrusting masters: the
+          content vouches for itself, by agreement, at each audit. A central authority of truth is precisely the single
+          point of failure the standard refuses.</p>
+        </details>
+        <details>
+          <summary><span class="qn">03</span>Is it decentralized, not merely distributed?</summary>
+          <p>Yes. Seven copies are worthless if one organization, one jurisdiction, or one administrator can reach them
+          all. So the standard demands at least three <em>kinds</em> of steward &mdash; national and university libraries,
+          an independent nonprofit, a government archive, a community swarm, with commercial cold storage as one leg only
+          &mdash; spread across at least two jurisdictions. No single party holds the whole.</p>
+        </details>
+        <details>
+          <summary><span class="qn">04</span>Does it routinely validate and repair?</summary>
+          <p>Yes &mdash; the &ldquo;0&rdquo; of 3-2-1-1-0. The masters are not a dark archive no one opens until an
+          emergency. On a fixed cadence each copy's fixity is read and compared against the others, and outliers are
+          repaired from the majority. Data that is never checked is data you cannot trust.</p>
+        </details>
+        <details>
+          <summary><span class="qn">05</span>Does it fail gracefully &mdash; slowly, not fast?</summary>
+          <p>Yes. Following LOCKSS, repair is deliberately conservative: disagreement is surfaced, but a copy is corrected
+          only on overwhelming consensus, leaving time to investigate. This is why seven matters &mdash; an odd quorum can
+          outvote two simultaneously corrupted copies, so tampering is caught and contained before bad bits can cascade
+          across the whole archive.</p>
+        </details>
+        <details>
+          <summary><span class="qn">06</span>Does it preserve local custody and control?</summary>
+          <p>Yes. Each steward holds and governs its own master on open, non-proprietary media &mdash; LTO tape and open
+          formats &mdash; beholden to no service provider's business model or terms of use. It is the reason commercial
+          cold storage can be one leg of the seven, but never the spine.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Synthesis -->
+  <section id="standard" class="section surface-chocolate">
+    <div class="wrap">
+      <span class="eyebrow">The Pergamon Standard</span>
+      <p class="triad" style="max-width:32ch">&ge; 7 fixity-verified tape masters &middot; &ge; 3 disaster-threat
+      zones &middot; &ge; 2 jurisdictions &middot; &ge; 3 institution types.</p>
+      <ul class="plist mono">
+        <li><strong>Catastrophe</strong> &rarr; copies + zones</li>
+        <li><strong>Censorship</strong> &rarr; jurisdictions</li>
+        <li><strong>Institutional loss</strong> &rarr; institutional diversity</li>
+      </ul>
+      <p style="color:var(--muted-cream);max-width:48ch;margin-top:1.4rem">Seven masters &mdash; one for each of the
+      classical planets &mdash; an odd quorum scattered across the Earth and its jurisdictions, that no single power can
+      quietly close.</p>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="section">
+    <div class="wrap prose">
+      <p class="form-note">Sources: the 3-2-1 rule (a baseline endorsed by CISA and NIST) and its modern 3-2-1-1-0
+      extension; the <a href="https://www.ndsa.org/publications/levels-of-digital-preservation/">NDSA Levels of Digital
+      Preservation</a> (Storage &amp; Geographic Location, Levels&nbsp;1&ndash;4); and the
+      <a href="https://www.lockss.org/">LOCKSS program</a> — Lots Of Copies Keep Stuff Safe — whose
+      <a href="https://www.lockss.org/about/preservation-principles">Preservation Principles</a> supply the six evaluative
+      questions above and the case for decentralization over mere distribution. Trustworthy-repository certification
+      (OAIS / ISO&nbsp;14721, ISO&nbsp;16363, and <a href="https://www.coretrustseal.org/">CoreTrustSeal</a>) governs how
+      each holding institution is audited, a separate axis from the four above. Drive and cartridge prices are indicative
+      retail figures for LTO-9 hardware as of mid-2026 and will vary by vendor.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer surface-chocolate">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="Project Pergamon — home">
+      <svg class="emblem" width="44" height="44" viewBox="0 0 48 48" role="img" aria-label="Pergamon emblem">
+        <path d="M3 15 L24 4 L45 15 Z" fill="#A6543E"/>
+        <rect x="5" y="17" width="38" height="3" fill="currentColor"/>
+        <rect x="9" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="17.5" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="26.9" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="35.4" y="22" width="3.6" height="16" fill="currentColor"/>
+        <rect x="5" y="40" width="38" height="3.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark">Pergamon</span>
+    </a>
+    <p class="foot-tagline">Keeping open weights open — across copies, borders, and institutions.</p>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#tape">Tape</a>
+      <a href="#how-many">Copies</a>
+      <a href="#how-far">Distance</a>
+      <a href="#institutions">Stewards</a>
+      <a href="#principles">Principles</a>
+      <a href="#standard">The Standard</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle — uses your existing .nav.open / .scrim.show classes
+  (function () {
+    var t = document.querySelector('.menu-toggle');
+    var n = document.querySelector('.nav');
+    var s = document.querySelector('.scrim');
+    if (!t || !n || !s) return;
+    n.id = n.id || 'primary-nav';
+    function close() {
+      n.classList.remove('open'); s.classList.remove('show');
+      s.hidden = true; t.setAttribute('aria-expanded', 'false');
+    }
+    t.addEventListener('click', function () {
+      var open = n.classList.toggle('open');
+      s.classList.toggle('show', open);
+      s.hidden = !open;
+      t.setAttribute('aria-expanded', String(open));
+    });
+    s.addEventListener('click', close);
+    n.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+</script>
+</body>
+</html>
