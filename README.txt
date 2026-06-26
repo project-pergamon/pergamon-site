@@ -18,8 +18,6 @@ HOW TO EDIT:
   (static site) — edit them in each file, or use your editor's template feature.
 
 FILL THESE PLACEHOLDERS:
-  get-involved.html  -> "Open the interest form" button: replace https://tally.so with your real Tally URL
-  get-involved.html  -> contact email hello@projectpergamon.org (placeholder)
   Add sources/links anywhere as normal <a href="...">...</a>.
 
 FONTS: Marcellus + Spectral load from Google Fonts via the <link> in each <head> (needs internet).
