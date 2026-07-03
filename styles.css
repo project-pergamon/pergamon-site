@@ -44,6 +44,15 @@ strong{font-weight:600}
 .faq summary::after{content:"+";position:absolute;right:0;top:.95rem;font-size:1.4rem;color:var(--sienna)}
 .faq details[open] summary::after{content:"\2013"}
 .faq details p{padding:0 0 1.2rem;color:var(--muted-ink)}
+.faq .notes-panel{margin-top:1rem;border:1px solid var(--hairline);border-radius:var(--radius);padding:1rem 1.1rem;background:rgba(166,84,62,.05)}
+.faq .notes-panel summary{font-family:Marcellus,serif;font-size:1rem;padding:0 2rem 0 0;cursor:pointer;list-style:none;position:relative}
+.faq .notes-panel summary::-webkit-details-marker{display:none}
+.faq .notes-panel summary::after{content:"+";position:absolute;right:0;top:.02rem;font-size:1.2rem;color:var(--sienna)}
+.faq .notes-panel[open] summary::after{content:"\2013"}
+.faq .notes-panel .note-list{margin:.7rem 0 0;padding-left:1.05rem}
+.faq .notes-panel .note-list li{margin-bottom:.7rem;padding:.2rem .35rem .2rem 0}
+.faq .notes-panel .note-list li.is-active{background:rgba(177,74,40,.12);border-radius:var(--radius)}
+.faq .notes-panel .note-number{display:inline-flex;align-items:center;justify-content:center;min-width:1.35rem;height:1.35rem;border-radius:999px;background:var(--brick);color:var(--cream);text-decoration:none;font-size:.86rem;font-weight:600;margin-right:.45rem}
 .emblem{display:block;width:auto}
 .hero .emblem{height:78px;margin-bottom:1.3rem}
 .hero h1{max-width:20ch}

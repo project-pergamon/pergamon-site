@@ -27,7 +27,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-light.svg" alt=""><span><span
-            class="wordmark">Project Pergamon</span><small>AI Preservation Archive</small></span></a>
+            class="wordmark">Project Pergamon</span><small>The Public AI Archive</small></span></a>
       <nav class="nav" id="nav" aria-label="Primary"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a
           href="field-notes.html">Field Notes</a><a href="get-involved.html" aria-current="page">Get Involved</a></nav>
       <div class="header-actions"><a class="btn btn-brick" href="get-involved.html#form">Support</a><button
@@ -46,8 +46,16 @@
 
     <section class="section surface-parchment">
       <div class="wrap prose">
-        <p class="lead">If you want to help build a durable public record for open-weight AI, you can support the project
-          as a donor, advisor, technical collaborator, or institutional partner.</p>
+        <p class="lead">Project Pergamon is currently looking for collaborators and early supporters in five areas:</p>
+        <ul class="plist">
+          <li><strong>Archival and library preservation</strong> — digital preservation, metadata, custody, and long-horizon stewardship</li>
+          <li><strong>Technical preservation engineering</strong> — tape workflows, integrity checks, packaging, and archival infrastructure</li>
+          <li><strong>AI model reconstruction and documentation</strong> — architecture, tokenizer, execution context, and reconstructability</li>
+          <li><strong>Legal and governance counsel</strong> — licensing, access restrictions, provenance, and jurisdictional questions</li>
+          <li><strong>Fundraising and institutional development</strong> — donor strategy, partnerships, and long-term institutional support</li>
+        </ul>
+        <p>If your work touches the future custody of public AI, we would like to hear from you.</p>
+        <p>Introduce yourself through the form below.</p>
       </div>
     </section>
 
@@ -111,13 +119,13 @@
           <div class="error-summary" id="formErrorSummary" role="alert" hidden></div>
 
           <div class="field">
-            <label for="fullName">Full name <span class="req" aria-hidden="true">*</span></label>
+            <label for="fullName">Name <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="fullName" name="fullName" autocomplete="name" required aria-required="true">
             <p class="error-text" id="err-fullName" hidden></p>
           </div>
 
           <div class="field">
-            <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
             <input type="email" id="email" name="email" autocomplete="email" required aria-required="true">
             <p class="error-text" id="err-email" hidden></p>
           </div>
@@ -180,40 +188,36 @@
             </div>
           </fieldset>
 
-          <div class="field-row">
-            <div class="field">
-              <label for="organization">Organization <span class="opt">(optional)</span></label>
-              <input type="text" id="organization" name="organization" autocomplete="organization">
-            </div>
-            <div class="field">
-              <label for="role">Role / Title <span class="opt">(optional)</span></label>
-              <input type="text" id="role" name="role" autocomplete="organization-title">
-            </div>
+          <div class="field">
+            <label for="organization">Affiliation / Organization <span class="opt">(optional)</span></label>
+            <input type="text" id="organization" name="organization" autocomplete="organization">
           </div>
 
           <div class="field">
-            <label for="link">Website or LinkedIn <span class="opt">(optional)</span></label>
-            <input type="url" id="link" name="link" inputmode="url" placeholder="https://">
+            <label for="help">How would you like to help? <span class="req" aria-hidden="true">*</span></label>
+            <select id="help" name="help" required aria-required="true">
+              <option value="" selected>Choose one&hellip;</option>
+              <option>archival and library preservation</option>
+              <option>technical preservation engineering</option>
+              <option>AI model reconstruction and documentation</option>
+              <option>legal and governance counsel</option>
+              <option>fundraising and institutional development</option>
+              <option>donor / founding supporter</option>
+              <option>institutional partner</option>
+              <option>other</option>
+            </select>
+            <p class="error-text" id="err-help" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="link">Relevant background or links <span class="opt">(optional)</span></label>
+            <input type="url" id="link" name="link" inputmode="url" placeholder="Website, GitHub, CV, LinkedIn, institution page, or similar">
             <p class="error-text" id="err-link" hidden></p>
           </div>
 
-          <fieldset class="field">
-            <legend>How would you like to help? <span class="opt">(optional)</span></legend>
-            <div class="checkbox-grid">
-              <label class="check"><input type="checkbox" name="help" value="Financial support"> Financial support</label>
-              <label class="check"><input type="checkbox" name="help" value="Technical collaboration"> Technical collaboration</label>
-              <label class="check"><input type="checkbox" name="help" value="Archival / preservation expertise"> Archival / preservation expertise</label>
-              <label class="check"><input type="checkbox" name="help" value="Research collaboration"> Research collaboration</label>
-              <label class="check"><input type="checkbox" name="help" value="Institutional partnership"> Institutional partnership</label>
-              <label class="check"><input type="checkbox" name="help" value="Advisory support"> Advisory support</label>
-              <label class="check"><input type="checkbox" name="help" value="Press / media"> Press / media</label>
-              <label class="check"><input type="checkbox" name="help" value="Other"> Other</label>
-            </div>
-          </fieldset>
-
           <div class="field">
-            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="message" name="message" rows="6" required aria-required="true"></textarea>
+            <label for="message">Optional note <span class="opt">(optional)</span></label>
+            <textarea id="message" name="message" rows="6"></textarea>
             <p class="error-text" id="err-message" hidden></p>
           </div>
 
@@ -243,8 +247,7 @@
     <div class="wrap">
       <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-reversed.svg" alt=""
           style="height:40px"><span class="wordmark" style="font-size:1.3rem">Project Pergamon</span></a>
-      <p class="foot-tagline">Preserving open-weight AI so it can be reconstructed after censorship, catastrophe, or
-        institutional loss.</p>
+      <p class="foot-tagline">Preserving public AI models, so the future of intelligence can interpret it's past.</p>
       <nav class="foot-nav" aria-label="Footer"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a
           href="field-notes.html">Field Notes</a><a href="get-involved.html">Get Involved</a></nav>
     </div>
@@ -255,6 +258,7 @@
 
     var form = document.getElementById('contactForm');
     var category = document.getElementById('category');
+    var help = document.getElementById('help');
     var condSupport = document.getElementById('condSupport');
     var condInvolved = document.getElementById('condInvolved');
     var successEl = document.getElementById('formSuccess');
@@ -301,7 +305,7 @@
 
     function validate() {
       var errors = [];
-      ['fullName', 'email', 'category', 'message', 'link', 'consent'].forEach(clearError);
+      ['fullName', 'email', 'category', 'help', 'link', 'consent'].forEach(clearError);
 
       var name = fields.fullName.value.trim();
       if (!name) errors.push(['fullName', 'Please enter your name.']);
@@ -312,7 +316,7 @@
 
       if (!category.value) errors.push(['category', 'Please choose what you are reaching out about.']);
 
-      if (!fields.message.value.trim()) errors.push(['message', 'Please add a short message.']);
+      if (!help.value) errors.push(['help', 'Please choose how you would like to help.']);
 
       var link = fields.link.value.trim();
       if (link && !/^https?:\/\/.+\..+/.test(link)) errors.push(['link', 'Please enter a full URL starting with https://']);
@@ -341,7 +345,7 @@
 
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = v; });
-      data.help = Array.from(form.querySelectorAll('input[name="help"]:checked')).map(function (c) { return c.value; });
+      data.help = help.value;
       data.lane = (category.value === 'Support Pergamon' || category.value === 'Get Involved') ? category.value : '';
       data.submittedAt = new Date().toISOString();
       delete data.company_website;
