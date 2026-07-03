@@ -46,53 +46,56 @@
             <div class="wrap">
                 <div class="faq">
                     <details>
-                        <summary>Why Pergamon?</summary>
-                        <p>You&rsquo;ve probably heard of the Library of Alexandria, where knowledge was gathered onto
-                            papyrus scrolls and whose fate became legendary.</p>
-                        <p>Less familiar is Pergamon, Alexandria&rsquo;s great rival, <a href="https://www.abaa.org/articles/the-history-of-vellum-and-parchment">which became associated with
-                            parchment as an alternative writing substrate</a>.</p>
-                        <p>Pergamon parchment made the ancient knowledge economy more resilient by decoupling
-                            information from the economics and politics of Egyptian papyrus.</p>
-                        <p>The lesson is that knowledge becomes less fragile when it is no longer bound to a single
-                            material base.</p>
-                        <p>Project Pergamon takes its name from that principle. We are building an institution around
-                            the problem of preserving knowledge across substrates.</p>
-                    </details>
-
-                   <details>
-                        <summary>Why the Archimedes Series?</summary>
-                        <p>Our first public archive proofs will appear under The Archimedes Series. The name draws on
-                            the Archimedes Palimpsest, a reminder that technical knowledge can survive damage,
-                            obscurity, and time if enough of the record remains to be recovered. The point is to make
-                            recoverability intentional.</p>
+                        <summary>Question 1: Why Pergamon?</summary>
+                        <p>You have probably heard of the Library of Alexandria, where knowledge was gathered onto papyrus scrolls.<sup><a href="#fn1" id="fnref1">[^1]</a></sup><sup><a href="#fn3" id="fnref3">[^3]</a></sup> Less familiar is Pergamon, Alexandria’s great rival, which became traditionally associated with parchment as an alternative writing substrate.<sup><a href="#fn1" id="fnref1b">[^1]</a></sup><sup><a href="#fn2" id="fnref2">[^2]</a></sup> The lesson we take from that history is simple: knowledge becomes less fragile when it is no longer bound to a single medium. Project Pergamon takes its name from that principle. We are building an institution around the problem of preserving knowledge at historical timescales.</p>
                     </details>
 
                     <details>
-                        <summary>What do we mean by "open source"?</summary>
-                        <p>We use “open source AI” in the ordinary-language sense of systems people can access, use, study, modify, and build on. That meaning is broader than any single legal or technical standard.</p>
-                        <p> Open models vary in what they actually make available, including weights, code, training data, provenance, documentation, and use rights. Pergamon preserves as much of this record as it responsibly can, and describes each model in clear terms.</p>
-                       
+                        <summary>Question 2: Why “public” rather than “open source”?</summary>
+                        <p>We use “public” because “open source” has become a contested term in AI, especially in cases where model weights are publicly released but training data or other components remain undisclosed.<sup><a href="#fn4" id="fnref4">[^4]</a></sup><sup><a href="#fn6" id="fnref6">[^6]</a></sup><sup><a href="#fn7" id="fnref7">[^7]</a></sup> “Publicly released,” by contrast, is a verifiable fact: the rights-holder made the model available for public download on documented terms.</p>
+                        <p>Pergamon is designed to record those distinctions rather than blur them. Our metadata profile distinguishes a component that was <strong>withheld</strong> — for example, when a rights-holder chose not to release training data — from one that is merely <strong>unknown</strong>, where public evidence was insufficient to establish provenance with confidence. That accession record gives future researchers a clearer account of institutional decision-making, including the present-day drift toward decoupling public weights from open training.</p>
                     </details>
 
                     <details>
-                        <summary>Why preserve state-of-the-art AI on physical tape/ why not existing software archives?</summary>
-                        <p>Online availability is not the same thing as durable survival. Open models can be
-                            delisted, neglected, censored, fragmented across platforms, or rendered unusable when
-                            surrounding technical context disappears. Physical preservation adds custody, independence,
-                            and durability that purely networked distribution cannot guarantee on its own. 
-                            Pergamon treats open-weight AI as part of the historical record, not just as a live software
-                            dependency.</p>
+                        <summary>Question 3: Why not just leave this to existing online repositories like Hugging Face?</summary>
+                        <p>Online availability is not the same thing as durable survival.<sup><a href="#fn8" id="fnref8">[^8]</a></sup><sup><a href="#fn9" id="fnref9">[^9]</a></sup> Publicly released models can be delisted, neglected, censored, fragmented across platforms, or rendered unusable when the surrounding technical context disappears. A live download link is a convenience left to someone else’s discretion, without any preservation guarantee.</p>
+                        <p>Physical, independently held copies add custody, independence, and durability that networked distribution alone cannot promise.</p>
                     </details>
-                    
+
                     <details>
-                        <summary>Why start small?</summary>
-                        <p>Because the first proof is meant to establish a method. A 1.5B-class model is small enough to
-                            preserve carefully, explain clearly, and document honestly. Starting small lets us build a
-                            credible first pass before moving toward larger and more complex archive objects. Reduction
-                            is part of the method. If this work matters, it should begin in a form that can be repeated,
-                            verified, and improved.</p>
+                        <summary>Question 4: Isn’t this what OAIS and existing preservation standards already do?</summary>
+                        <p>The OAIS Reference Model (ISO 14721) is part of the foundation we build on, and Pergamon is designed to conform to it wherever it applies.<sup><a href="#fn10" id="fnref10">[^10]</a></sup><sup><a href="#fn11" id="fnref11">[^11]</a></sup> But OAIS is a general preservation reference model, not an AI-specific archival profile. The information needed to interpret a generative AI model is not exhausted by its source code, nor by any other single technical artifact.</p>
+                        <p>On this frontier, the work of future historians may resemble philology more than direct reference: inferring meaning from a bundle of materials without full access to the people and institutions that produced them. Pergamon’s metadata format is expressed as a profile of the widely used BagIt packaging standard (RFC 8493), and it maps onto OAIS concepts while addressing the distinctive preservation problem posed by generative AI.<sup><a href="#fn12" id="fnref12">[^12]</a></sup></p>
                     </details>
-                   
+
+                    <details>
+                        <summary>Question 5: Why not existing software archives?</summary>
+                        <p>Because most existing software archives solve an adjacent problem, not the full preservation problem for public AI. Code archives are essential for preserving repositories, version history, and source files. But a generative model is not reducible to source code alone. Its historically meaningful record includes weights, architecture, tokenizer, provenance, documentation, and the terms under which different components were released or withheld.</p>
+                        <p>Project Pergamon is designed to complement those archives, not replace them. The problem is not just storing files. It is preserving the conditions under which historically significant public AI systems can still be understood, verified, and reconstructed in the future.<sup><a href="#fn10" id="fnref10b">[^10]</a></sup><sup><a href="#fn12" id="fnref12b">[^12]</a></sup><sup><a href="#fn13" id="fnref13">[^13]</a></sup></p>
+                    </details>
+
+                    <details>
+                        <summary>Question 6: Isn’t this just LOCKSS?</summary>
+                        <p>LOCKSS — “Lots of Copies Keep Stuff Safe” — is one of our aspirational models.<sup><a href="#fn13" id="fnref13b">[^13]</a></sup><sup><a href="#fn14" id="fnref14">[^14]</a></sup> Its core insight is social as much as technical: many independently administered copies, continually checking one another, are stronger than any single custodian. That is a standard Pergamon’s emerging governance model will need to meet.</p>
+                        <p>But LOCKSS was built to preserve web-published, renderable records gathered by crawl. A frontier AI model is much larger, not ordinarily web-harvestable, and better understood as a technical system to be interpreted rather than a page to be rendered. Pergamon extends the LOCKSS logic to that new kind of artifact. Our packaging approach is designed to remain interoperable with adjacent archival systems rather than locked inside a single preservation silo.<sup><a href="#fn12" id="fnref12c">[^12]</a></sup><sup><a href="#fn13" id="fnref13c">[^13]</a></sup><sup><a href="#fn15" id="fnref15">[^15]</a></sup></p>
+                    </details>
+
+                    <details>
+                        <summary>Question 7: Isn’t tape obsolete? Why build on it?</summary>
+                        <p>The Linear Tape-Open (LTO) format remains one of the proven, scalable, and low-energy choices used in working archives today.<sup><a href="#fn16" id="fnref16">[^16]</a></sup> It is not a magical forever medium, and we do not present it that way. Real preservation depends a disciplined archival format and workflow: the institutional challenge that no one medium solves once and for all. Our initial preservation horizon is measured in planned migration cycles, not permanence claims. Over longer timescales, the archive may well move onto other media, including ceramic- or silica-based substrates, if and when they become viable.<sup><a href="#fn17" id="fnref17">[^17]</a></sup><sup><a href="#fn18" id="fnref18">[^18]</a></sup></p>
+                    </details>
+
+                    <details>
+                        <summary>Question 8: Will these models still run in the future?</summary>
+                        <p>We do not guarantee that the future computing environment will run today’s models exactly as they run now. What Pergamon preserves is the record future custodians would need to reconstruct, emulate, or meaningfully interpret them.</p>
+                        <p>That includes weights, architecture, and the surrounding documentation needed to recover a model’s technical logic as honestly as possible. Future performance may in fact depend on a world we do not control; That is why we strive to improve the odds that reconstruction and emulation remain possible.</p>
+                    </details>
+
+                    <details>
+                        <summary>Question 9: What about models that are dangerous or legally restricted?</summary>
+                        <p>This concern is real. Publicly released models can be used against the public's interests, and Pergamon does not dismiss that risk. But preservation does not create public access where none existed before: the models we preserve are already publicly released.</p>
+                        <p>Pergamon also does not position itself as a universal arbiter of which models are acceptable everywhere. Instead, we are designing an archival framework in which different jurisdictions and institutions can govern access to weights, training data, execution requirements, or other components differently. Just as important, those restrictions become part of the archival record itself.</p>
+                    </details>
                 </div>
             </div>
         </section>
@@ -101,6 +104,31 @@
                 <h2>Want to help?</h2>
                 <p>The fastest way in is to introduce yourself.</p>
                 <div class="btn-row"><a class="btn btn-brick" href="get-involved.html">Get involved</a></div>
+            </div>
+        </section>
+        <section class="section surface-parchment">
+            <div class="wrap prose">
+                <h2>Notes</h2>
+                <ol>
+                    <li id="fn1">Encyclopaedia Britannica, “Parchment,” <a href="https://www.britannica.com/topic/parchment">https://www.britannica.com/topic/parchment</a> <a href="#fnref1" aria-label="Back to reference 1">↩</a></li>
+                    <li id="fn2">Encyclopaedia Britannica, “Pergamum,” <a href="https://www.britannica.com/place/Pergamum">https://www.britannica.com/place/Pergamum</a> <a href="#fnref2" aria-label="Back to reference 2">↩</a></li>
+                    <li id="fn3">Encyclopaedia Britannica, “Library of Alexandria,” <a href="https://www.britannica.com/topic/Library-of-Alexandria">https://www.britannica.com/topic/Library-of-Alexandria</a> <a href="#fnref3" aria-label="Back to reference 3">↩</a></li>
+                    <li id="fn4">Open Source Initiative, “The Open Source AI Definition – 1.0,” <a href="https://opensource.org/ai/open-source-ai-definition">https://opensource.org/ai/open-source-ai-definition</a> <a href="#fnref4" aria-label="Back to reference 4">↩</a></li>
+                    <li id="fn5">Open Source Initiative, “Open Source AI,” <a href="https://opensource.org/ai">https://opensource.org/ai</a> <a href="#fnref5" aria-label="Back to reference 5">↩</a></li>
+                    <li id="fn6">Open Source Initiative, “Openwashing: An accusation against some A.I. companies…,” <a href="https://opensource.org/press-mentions/openwashing-an-accusation-against-some-a-i-companies-that-they-are-using-the-open-source-label-too-loosely">https://opensource.org/press-mentions/openwashing-an-accusation-against-some-a-i-companies-that-they-are-using-the-open-source-label-too-loosely</a> <a href="#fnref6" aria-label="Back to reference 6">↩</a></li>
+                    <li id="fn7">Nature, “‘Open source’ AI isn’t truly open — here’s how researchers can reclaim the term,” <a href="https://www.nature.com/articles/d41586-025-00930-6">https://www.nature.com/articles/d41586-025-00930-6</a> <a href="#fnref7" aria-label="Back to reference 7">↩</a></li>
+                    <li id="fn8">Hugging Face Docs, “The Model Hub,” <a href="https://huggingface.co/docs/hub/models-the-hub">https://huggingface.co/docs/hub/models-the-hub</a> <a href="#fnref8" aria-label="Back to reference 8">↩</a></li>
+                    <li id="fn9">Hugging Face Docs, “Hugging Face Hub documentation,” <a href="https://huggingface.co/docs/hub/main/index">https://huggingface.co/docs/hub/main/index</a> <a href="#fnref9" aria-label="Back to reference 9">↩</a></li>
+                    <li id="fn10">ISO, “ISO 14721:2025 — Reference model for an Open Archival Information System (OAIS),” <a href="https://www.iso.org/standard/87471.html">https://www.iso.org/standard/87471.html</a> <a href="#fnref10" aria-label="Back to reference 10">↩</a></li>
+                    <li id="fn11">CCSDS, “Reference Model for an Open Archival Information System (OAIS),” <a href="https://ccsds.org/Pubs/650x0m3.pdf">https://ccsds.org/Pubs/650x0m3.pdf</a> <a href="#fnref11" aria-label="Back to reference 11">↩</a></li>
+                    <li id="fn12">IETF Datatracker, “RFC 8493: The BagIt File Packaging Format (V1.0),” <a href="https://datatracker.ietf.org/doc/rfc8493/">https://datatracker.ietf.org/doc/rfc8493/</a> <a href="#fnref12" aria-label="Back to reference 12">↩</a></li>
+                    <li id="fn13">LOCKSS Program, “How LOCKSS Works,” <a href="https://www.lockss.org/use-lockss/how-lockss-works">https://www.lockss.org/use-lockss/how-lockss-works</a> <a href="#fnref13" aria-label="Back to reference 13">↩</a></li>
+                    <li id="fn14">LOCKSS Documentation Portal, <a href="https://docs.lockss.org/en/latest/">https://docs.lockss.org/en/latest/</a> <a href="#fnref14" aria-label="Back to reference 14">↩</a></li>
+                    <li id="fn15">NDSA, “Levels of Digital Preservation,” <a href="https://www.ndsa.org/publications/levels-of-digital-preservation/">https://www.ndsa.org/publications/levels-of-digital-preservation/</a> <a href="#fnref15" aria-label="Back to reference 15">↩</a></li>
+                    <li id="fn16">LTO Program, “LTO Ultrium: Reliable and Scalable Open Tape Storage Format,” <a href="https://www.lto.org/">https://www.lto.org/</a> <a href="#fnref16" aria-label="Back to reference 16">↩</a></li>
+                    <li id="fn17">LTO Program, “Linear Tape File System (LTFS),” <a href="https://www.lto.org/linear-tape-file-system/">https://www.lto.org/linear-tape-file-system/</a> <a href="#fnref17" aria-label="Back to reference 17">↩</a></li>
+                    <li id="fn18">IBM Docs, “LTFS format,” <a href="https://www.ibm.com/docs/en/storage-archive-le/2.4.7?topic=overview-ltfs-format">https://www.ibm.com/docs/en/storage-archive-le/2.4.7?topic=overview-ltfs-format</a> <a href="#fnref18" aria-label="Back to reference 18">↩</a></li>
+                </ol>
             </div>
         </section>
     </main>
