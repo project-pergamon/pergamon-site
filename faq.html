@@ -82,7 +82,7 @@
 
                     <details>
                         <summary>Question 7: Isn’t tape obsolete? Why build on it?</summary>
-                        <p>The Linear Tape-Open (LTO) format remains one of the proven, scalable, and low-energy choices used in working archives today.<sup><a href="#fn16" id="fnref16">[^16]</a></sup> It is not a magical forever medium, and we do not present it that way. Real preservation depends a disciplined archival format and workflow: the institutional challenge that no one medium solves once and for all. Our initial preservation horizon is measured in planned migration cycles, and our logo, the snake who sheds his old skin for the new, speaks to the growth of knowledge across materials. Over longer timescales, the archive may well move onto other media, including ceramic- or silica-based substrates, if and when they become viable.<sup><a href="#fn17" id="fnref17">[^17]</a></sup><sup><a href="#fn18" id="fnref18">[^18]</a></sup></p>
+                        <p>The Linear Tape-Open (LTO) format remains one of the proven, scalable, and low-energy choices used in working archives today.<sup><a href="#fn16" id="fnref16">[^16]</a></sup> It is not a magical forever medium, and we do not present it that way. Real preservation depends a disciplined archival format and workflow: the institutional challenge that no one medium solves once and for all. Our initial preservation horizon is measured in planned migration cycles, while our logo, a snake who sheds his old skin for the new, speaks to the growth of knowledge across materials. Over longer timescales, the archive may well move onto other media, including ceramic- or silica-based substrates, if and when they become viable.<sup><a href="#fn17" id="fnref17">[^17]</a></sup><sup><a href="#fn18" id="fnref18">[^18]</a></sup></p>
                     </details>
 
                     <details>
@@ -96,6 +96,12 @@
                         <p>This concern is real. Publicly released models can be used against the public's interests, and Pergamon does not dismiss that risk. But preservation does not create public access where none existed before: the models we preserve are already publicly released.</p>
                         <p>Pergamon also does not position itself as a universal arbiter of which models are acceptable everywhere. Instead, we are designing an archival framework in which different jurisdictions and institutions can govern access to weights, training data, execution requirements, or other components differently. Just as important, those restrictions become part of the archival record itself.</p>
                     </details>
+
+                    <details>
+                        <summary>Question 10: How do you preserve training data and checkpoints?</summary>
+                        <p> Models with pubicly available training data are linked to that corpus by reference: a practical and legal decision. Practically, an LLM with final weights measured in gigabytes may have been trained on a corpus of tens of terabytes. And embedding every corpus inside every model's record would be redundant, since a single corpus is often shared across many models. The legal concern runs deeper: A training corpus is usually not the model-maker's to give away. Pre-existing works that belong to others and are held elsewhere (web pages, books, code, images) fall outside the responsible mandate of a public AI archive. Where a corpus is openly liscenced and seperately stewarded, we point to it as its own preserved artifact. Our records remain comapct, lawful, and honest: we never pretend to hold what is better served elsewhere.</p>
+                    </details>
+                    
                     <details class="notes-panel" id="notesPanel">
                         <summary>Notes</summary>
                         <ol class="note-list">
