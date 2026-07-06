@@ -16,7 +16,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    
+
 extra_css:
   - stylesheets/pergamon.css
 
