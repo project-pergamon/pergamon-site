@@ -1,0 +1,845 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://projectpergamon.org/technical-docs/crosswalk/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>OAIS ↔ Pergamon Crosswalk — notes scaffold (v0.1) - Pergamon Technical Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oais-pergamon-crosswalk-notes-scaffold-v01" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Pergamon Technical Documentation" class="md-header__button md-logo" aria-label="Pergamon Technical Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pergamon Technical Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OAIS ↔ Pergamon Crosswalk — notes scaffold (v0.1)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../spec/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Specification
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../vocabulary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Vocabulary
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../validation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Validation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../example/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Example
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Pergamon Technical Documentation" class="md-nav__button md-logo" aria-label="Pergamon Technical Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pergamon Technical Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabulary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-information-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Information Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-functional-model-the-six-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Functional Model (the six entities)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-environment-actors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Environment / Actors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-trustworthiness-layer-adjacent-standards-not-oais-proper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Trustworthiness layer (adjacent standards, not OAIS proper)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="D. Trustworthiness layer (adjacent standards, not OAIS proper)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-three-divergences-pinned-to-cells-for-the-faq-to-point-at" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three divergences, pinned to cells (for the FAQ to point at)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framing-reminders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Framing reminders
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="oais-pergamon-crosswalk-notes-scaffold-v01">OAIS ↔ Pergamon Crosswalk — notes scaffold (v0.1)</h1>
+<p><strong>Source of truth:</strong> OAIS Reference Model, CCSDS 650.0-M-2 (= ISO 14721). Cite the standard, not paraphrases.
+<strong>Verdict vocabulary:</strong> <code>conformant</code> · <code>conformant-with-extension</code> · <code>out-of-model</code> · <code>n/a</code>
+<strong>How to use:</strong> fill columns 3–4 as you go. Column 4 is the load-bearing one — it's where divergences land in <em>specific cells</em> instead of as loose claims.</p>
+<p>Legend for pre-seeded cells: ★ = verdict we've already argued for; (blank) = for you to fill.</p>
+<hr />
+<h2 id="a-information-model">A. Information Model</h2>
+<table>
+<thead>
+<tr>
+<th>OAIS term (as named in the standard)</th>
+<th>OAIS one-line definition</th>
+<th>Pergamon construct</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SIP</strong> — Submission Information Package</td>
+<td>What a Producer hands the archive at ingest</td>
+<td><em>your note</em></td>
+<td><em>(see Ingest — typically forensic capture, not cooperative submission)</em></td>
+</tr>
+<tr>
+<td><strong>AIP</strong> — Archival Information Package</td>
+<td>The package the archive preserves long-term</td>
+<td>The Archimedes <strong>bag</strong> (one model)</td>
+<td>conformant ★</td>
+</tr>
+<tr>
+<td><strong>DIP</strong> — Dissemination Information Package</td>
+<td>What a Consumer receives on access</td>
+<td><em>your note</em></td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td><strong>Content Information</strong></td>
+<td>The target object + the RepInfo needed to understand it</td>
+<td><code>data/</code> (released bytes) + descriptors</td>
+<td>conformant ★</td>
+</tr>
+<tr>
+<td>→ <strong>Content Data Object</strong></td>
+<td>The bits being preserved</td>
+<td>The released weights/config/tokenizer in <code>data/model/</code></td>
+<td>conformant ★</td>
+</tr>
+<tr>
+<td>→ <strong>Representation Information</strong></td>
+<td>What turns the bits into something meaningful</td>
+<td><code>ARCHITECTURE.json</code> / <code>TOKENIZER.json</code> + format info</td>
+<td>conformant-with-extension ★ <em>(see behavior gap below)</em></td>
+</tr>
+<tr>
+<td>⮑ Structure RepInfo</td>
+<td>How the bits are formatted</td>
+<td>safetensors/format records in <code>MODEL.json</code></td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td>⮑ Semantic RepInfo</td>
+<td>What the data <em>means</em></td>
+<td>architecture/tokenizer semantics</td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td>⮑ <strong>(no OAIS subtype: behavioral)</strong></td>
+<td>—</td>
+<td><strong>Executable behavior of the model</strong> (runtime, distillation-as-regen, deployment-archiving)</td>
+<td><strong>out-of-model</strong> ★ — OAIS RepInfo renders passive objects; a model <em>executes</em>. This is the frontier cell.</td>
+</tr>
+<tr>
+<td><strong>PDI</strong> — Preservation Description Information</td>
+<td>Everything needed to preserve &amp; trust the Content over time</td>
+<td>the <code>pergamon/</code> layer</td>
+<td>conformant ★</td>
+</tr>
+<tr>
+<td>→ Provenance</td>
+<td>History/origin of the Content</td>
+<td><code>PROVENANCE.json</code> (capture chain)</td>
+<td>conformant-with-extension ★ — provenance is often <em>forensically reconstructed &amp; partial</em>, not supplied at ingest</td>
+</tr>
+<tr>
+<td>→ Context</td>
+<td>How it relates to other objects/environments</td>
+<td><em>your note</em> (lineage, tape membership?)</td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td>→ Reference</td>
+<td>Identifiers that name the object</td>
+<td><code>External-Identifier</code>, <code>Pergamon-Model-Identifier</code></td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td>→ Fixity</td>
+<td>Integrity/error-protection evidence</td>
+<td>dual SHA-256/512 manifests</td>
+<td>conformant ★</td>
+</tr>
+<tr>
+<td>→ Access Rights</td>
+<td>Permissions &amp; restrictions on use</td>
+<td><code>License-Class</code>, <code>Origin-Jurisdiction</code>, withheld-ledger</td>
+<td>conformant-with-extension ★ — adds the <em>redistribution-restriction</em> axis OAIS doesn't model</td>
+</tr>
+<tr>
+<td><strong>Packaging Information</strong></td>
+<td>Binds Content + PDI into the package</td>
+<td>BagIt (RFC 8493) structure</td>
+<td>conformant ★</td>
+</tr>
+<tr>
+<td><strong>Descriptive Information</strong></td>
+<td>Metadata supporting Access/discovery</td>
+<td><code>bag-info.txt</code> + tape manifest rollups</td>
+<td><em>fill</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="b-functional-model-the-six-entities">B. Functional Model (the six entities)</h2>
+<table>
+<thead>
+<tr>
+<th>OAIS entity</th>
+<th>OAIS one-line role</th>
+<th>Pergamon construct</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ingest</strong></td>
+<td>Accept SIPs, generate AIPs</td>
+<td>Forensic <strong>capture</strong> of publicly-released (often orphaned) weights</td>
+<td>conformant-with-extension ★ — Producer frequently absent/non-cooperative</td>
+</tr>
+<tr>
+<td><strong>Archival Storage</strong></td>
+<td>Store, maintain, retrieve AIPs</td>
+<td><strong>Distributed multi-institution quorum</strong> (not one store)</td>
+<td>conformant-with-extension ★ — unit of integrity is the <em>constellation</em>, not the node</td>
+</tr>
+<tr>
+<td><strong>Data Management</strong></td>
+<td>Maintain descriptive DB + system info</td>
+<td><em>your note</em></td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td><strong>Preservation Planning</strong></td>
+<td>Monitor environment, plan migrations</td>
+<td><em>your note</em> (format/runtime-rot watch; architecture-as-hedge)</td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td><strong>Access</strong></td>
+<td>Serve DIPs to Consumers</td>
+<td><em>your note</em></td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td><strong>Administration</strong></td>
+<td>Day-to-day operation of the archive</td>
+<td><em>your note</em></td>
+<td><em>fill</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="c-environment-actors">C. Environment / Actors</h2>
+<table>
+<thead>
+<tr>
+<th>OAIS actor</th>
+<th>OAIS one-line role</th>
+<th>Pergamon reality</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Producer</strong></td>
+<td>Supplies the information to be preserved</td>
+<td>Often the lab — frequently <em>non-cooperative or defunct</em>; weights captured, not donated</td>
+<td>conformant-with-extension ★</td>
+</tr>
+<tr>
+<td><strong>Consumer</strong></td>
+<td>Requests &amp; receives preserved information</td>
+<td>researchers, historians, future custodians</td>
+<td><em>fill</em></td>
+</tr>
+<tr>
+<td>→ <strong>Designated Community</strong></td>
+<td>The audience the archive commits to keep it usable <em>for</em></td>
+<td><em>your note</em> — define explicitly</td>
+<td><em>fill (important)</em></td>
+</tr>
+<tr>
+<td><strong>Management</strong></td>
+<td>The authority that sets archive policy</td>
+<td><strong>Itself part of the threat model</strong> (capture, seizure, defunding) → answered by distribution</td>
+<td>conformant-with-extension ★</td>
+</tr>
+</tbody>
+</table>
+<h2 id="d-trustworthiness-layer-adjacent-standards-not-oais-proper">D. Trustworthiness layer (adjacent standards, not OAIS proper)</h2>
+<table>
+<thead>
+<tr>
+<th>Construct</th>
+<th>Source</th>
+<th>Pergamon stance</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trustworthy repository audit</td>
+<td>ISO 16363 / CoreTrustSeal</td>
+<td>per-<em>institution</em> audit; Pergamon adds <em>cross-institution</em> quorum above it</td>
+<td>conformant-with-extension</td>
+</tr>
+<tr>
+<td>—</td>
+<td>—</td>
+<td><em>your note</em></td>
+<td><em>fill</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="the-three-divergences-pinned-to-cells-for-the-faq-to-point-at">The three divergences, pinned to cells (for the FAQ to point at)</h3>
+<ol>
+<li><strong>Executable behavior</strong> → <em>out-of-model</em> at Representation Information (A). The novel/frontier claim. Do <strong>not</strong> mark as "solved."</li>
+<li><strong>Distribution &amp; trust</strong> → <em>extension</em> at Archival Storage + Management (B, C). Already built (quorum).</li>
+<li><strong>Orphaned / partial provenance</strong> → <em>extension</em> at Ingest + Producer + PDI/Provenance (A, B, C). Already built (capture-only basis, withheld-vs-unknown ledger).</li>
+</ol>
+<h3 id="framing-reminders">Framing reminders</h3>
+<ul>
+<li>OAIS <em>predates</em> the executable object; it didn't "fail to get AI." Silence = evidence for the thesis, not a flaw.</li>
+<li>"Publicly released" = scope (verifiable event). "Open" = per-item metadata (contested property). Different jobs, not a ranking.</li>
+<li>Conformant cells first (the handshake); divergences second (earned, not asserted).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
