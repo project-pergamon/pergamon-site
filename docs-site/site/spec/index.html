@@ -792,19 +792,19 @@
 
 <h1 id="the-archimedes-profile-v01-draft">The Archimedes Profile — v0.1 (DRAFT)</h1>
 <p>A BagIt Profile for preserving publicly released AI models as self-describing, verifiable preservation units, written many-to-a-tape.</p>
-<p><strong>Status:</strong> Draft, pre-network. Intended to be hardened with a technical collaborator and legal counsel before first custody transfer.
+<p><strong>Status:</strong> A proof of concept, an opening dialogue, and an invitation to collaborate. Intended to be hardened with a technical collaborator and legal counsel before first custody transfer.
 <strong>Conforms to:</strong> RFC 8493 (BagIt File Packaging Format, V1.0) and the community <em>bagit-profiles</em> convention.
 <strong>Profile document:</strong> <code>archimedes-profile-v0.1.json</code>
 <strong>Rev note:</strong> this revision separates the <em>bag</em> (one model) from the <em>tape</em> (many bags); see §1 and §8.</p>
 <hr />
 <h2 id="1-scope-and-the-three-layers">1. Scope and the three layers</h2>
-<p>The system distinguishes three things the earlier draft had wrongly collapsed into one:</p>
+<p>The system distinguishes between three operative layers in the work of preservation:</p>
 <ul>
-<li><strong>Model</strong> — the intellectual object: a publicly released AI model.</li>
-<li><strong>Bag</strong> — the unit of <em>packaging and verification</em>. One bag wraps <strong>exactly one model</strong> (RFC 8493 + the Archimedes Profile). The bag is the atom: independently verifiable, independently custodiable, independently withdrawable.</li>
+<li><strong>Model</strong> — the intellectual object: a publicly released AI model, itself consisting of multiple components.</li>
+<li><strong>Bag</strong> — the unit of <em>packaging and verification</em>. One bag wraps <strong>exactly one model</strong> (RFC 8493 + the Archimedes Profile). The bag is independently verifiable, independently custodiable, independently withdrawable.</li>
 <li><strong>Tape</strong> — the physical <strong>container of bags</strong>. One LTO-9 cartridge carries <strong>one or more bags</strong>. The tape is a carrier, not itself a bag.</li>
 </ul>
-<p>"Publicly released" means <em>released by the rights-holder for public download, on any terms</em> — which admits permissive, use-restricted, and redistribution-restricted models alike, and excludes leaks (no rights-holder release) and API-only models (no weights released). The Profile makes no claim that a model is "open"; openness is recorded per-item as metadata, not enforced at the door.</p>
+<p>"Publicly released" means <em>released by the rights-holder for public download, on any terms</em> — which admits permissive, use-restricted, and redistribution-restricted models alike, and excludes leaked model weights (no rights-holder release) and API-only models (no weights released). The Profile makes no claim that a model is "open" - rather, the metadata decomposes "open-ness" into a verifiable list of distinct claims.</p>
 <p>The Profile governs <strong>packaging, integrity, and self-description</strong> at the bag level, and <strong>indexing</strong> at the tape level. It is deliberately not a transfer <em>protocol</em> (discovery, replication scheduling, audit voting, repair); those belong to a network layer above it.</p>
 <p><strong>A bag is intentionally tape-agnostic.</strong> It records nothing about which cartridge carries it or what its tapemates are. How many bags fit on a tape is a <em>deployment fact</em> that varies by model selection, size, precision, and LTO generation — so it lives in the tape manifest (§8), never in the bag. This keeps the bag a stable, portable atom that can be re-written onto any medium without editing.</p>
 <h2 id="2-the-payload-annotation-split">2. The payload / annotation split</h2>
@@ -814,6 +814,16 @@
 <li><strong><code>pergamon/</code></strong> holds Pergamon's <strong>authored interpretive layer</strong> as tag files — provenance, the completeness ledger, custodian documentation, and normalized descriptors that <em>point into</em> <code>data/</code> without modifying it.</li>
 </ul>
 <p>This mirrors the OAIS distinction between Content Information (the release) and Preservation Description Information (the annotations), and it keeps the released artifact independently checkable, separate from any commentary on it.</p>
+<p><strong>The five records.</strong> The <code>[Cat 1]</code>–<code>[Cat 5]</code> tags in the layout below refer to Pergamon's five categories of reconstruction material — the set a future reader needs to interpret a model's likely behaviors:</p>
+<ol>
+<li><strong>Model weights &amp; state</strong> — the trained parameters themselves</li>
+<li><strong>Architecture &amp; configuration</strong> — what the numbers are and how they are arranged</li>
+<li><strong>Tokenizer &amp; metadata</strong> — the mapping between text and the model's input space</li>
+<li><strong>Provenance &amp; integrity</strong> — where these bytes came from, and the honest basis for trusting them</li>
+<li><strong>Documentation for future custodians</strong> — the plain-language account of all of the above, including every gap</li>
+</ol>
+<p>These are Pergamon's terms, not OAIS's, but they sort cleanly into the split above: categories 1–3 are the released artifact (Content Information, in <code>data/</code>); categories 4–5 are annotation about it (Preservation Description Information, in <code>pergamon/</code>). Together, the payload and the interpretive layer aim to cover as much of the five as each release permits — and where a category cannot be covered, the completeness ledger (§6) marks the gap rather than leaving it silent. The format guarantees markedness, not completeness: what a release withholds, the bag cannot supply, but it can always account for it.</p>
+
 <h2 id="3-bag-layout-one-model">3. Bag layout (one model)</h2>
 <div class="highlight"><pre><span></span><code>archimedes-&lt;model-id&gt;/
 ├── bagit.txt                     # BagIt declaration (version + encoding)
@@ -974,8 +984,8 @@
 </tbody>
 </table>
 <p><code>License-Class</code> and <code>Regenerable</code> are <strong>independent axes</strong> — license openness and process openness are different questions, and the Profile records both rather than collapsing them.</p>
-<h2 id="5-integrity-and-authenticity-the-honest-part">5. Integrity and authenticity (the honest part)</h2>
-<p>Two different guarantees, kept separate so neither is oversold:</p>
+<h2 id="5-integrity-and-authenticity">5. Two Remaining Challenges</h2>
+<p>Understanding what the Profile cannot guarantee is crucial for responsible archiving without overclaiming:</p>
 <ul>
 <li>
 <p><strong>Internal integrity</strong> — the dual <code>manifest-sha256</code> / <code>manifest-sha512</code> files certify that this bag's contents are complete and unaltered <em>since bagging</em>. Algorithm diversity hedges a future break in either hash. This catches decay and accidental corruption. Per RFC 8493, BagIt fixity is <strong>not designed to defend against active attack</strong> — an adversary who can rewrite a file can rewrite its checksum.</p>
@@ -988,9 +998,9 @@
 <li><code>capture-only</code> — no independent anchor; integrity asserted from a documented capture event only. <strong>This is an honest admission, not a defect</strong> — it tells a future scholar exactly how far the authenticity claim extends.</li>
 <li><code>undetermined</code> — our review could not establish an anchor (carries a review reference).</li>
 </ul>
-<p>The Profile never lets a manifest match <em>masquerade</em> as proof of authenticity. Cross-tape Byzantine quorum (a network-layer concern, above this Profile) is what defends the constellation against tampering; per-bag manifests defend the copy against decay.</p>
+<p>The Profile never lets a manifest match <em>masquerade</em> as proof of authenticity. Cross-tape quorum (a network-layer concern, above this Profile) is what defends the constellation against tampering; per-bag manifests defend the copy against decay.</p>
 <h2 id="6-the-completeness-ledger-completenessjson">6. The completeness ledger — <code>COMPLETENESS.json</code></h2>
-<p>The centerpiece. Bare <code>null</code> is forbidden, because it conflates "the lab never released this" with "Pergamon failed to record it" — and the difference between documenting the field's secrecy and documenting your own gaps is the whole point. Every component carries an explicit <strong>status</strong> from a controlled vocabulary; any non-<code>present</code> status MUST carry a reason and SHOULD link to a <code>CUSTODIAN.txt</code> anchor.</p>
+<p>The Pergamon Format forbits bare <code>null</code>, because it conflates "the lab never released this" with "Pergamon failed to record it." To avoid this ambiguity, every component of an aquisition record carries an explicit <strong>status</strong> from a controlled vocabulary; any non-<code>present</code> status MUST carry a reason and SHOULD link to a <code>CUSTODIAN.txt</code> anchor.</p>
 <p><strong>Status vocabulary</strong></p>
 <table>
 <thead>
@@ -1006,7 +1016,7 @@
 <tr>
 <td><code>present</code></td>
 <td>Captured and in the bag</td>
-<td>—</td>
+<td>inward (governance and practices)</td>
 <td>path</td>
 <td>weights, config</td>
 </tr>
@@ -1040,13 +1050,13 @@
 </tr>
 </tbody>
 </table>
-<p>There is deliberately <strong>no <code>unknown</code></strong>. "Unknown" is a shrug that assigns no accountability; every gap here points somewhere. <code>withheld</code> documents <em>the rights-holder's</em> decision; <code>unrecoverable</code> and <code>undetermined</code> document <em>Pergamon's</em> limits — the first a capture failure (we know it existed; we couldn't get it), the second a knowledge failure (our review could not establish it). A future historian can always tell which is which.</p>
-<p><strong>The two floors that keep the vocabulary honest:</strong></p>
+<p>There is deliberately <strong>no <code>unknown</code></strong>. All descriptions point to concrete actors, observable events, and accountable processes (or failure thereof). <code>withheld</code> documents <em>the rights-holder's</em> decision; <code>unrecoverable</code> and <code>undetermined</code> document <em>Pergamon's</em> limits: with <code>unrecoverable</code> recording a capture failure (we know it existed; we couldn't get it), <code>undetermined</code> a knowledge failure (our review could not establish it). A future interpreter can always tell which is which.</p>
+<p><strong>Gaps in the record come with marked responsibility:</strong></p>
 <ul>
 <li><strong><code>withheld</code> requires evidence of intent.</strong> Asserting that a rights-holder <em>chose</em> to withhold something is a claim about their decision, and an unevidenced claim of intent is itself an unmarked guess. <code>withheld</code> is legal only when the choice can be evidenced (the lab said so; the release included everything <em>but</em> this; the license implies it). When intent cannot be evidenced, the honest status is <code>undetermined</code> — about the gap's very nature.</li>
-<li><strong><code>undetermined</code> has to show it looked.</strong> A bare <code>undetermined</code> decays into <code>unknown</code> with better PR. Every <code>undetermined</code> carries a <code>review</code> reference — which review process ran, and when ("v0.1 review, 2026-06") — so the claim "we did our best" is checkable, and so a later determination reads as a dated improvement to the record rather than a contradiction of it. <code>undetermined</code> is process-relative and expected to change; the date is what marks <em>when we looked</em>.</li>
+<li><strong><code>undetermined</code> has to show it looked.</strong> Every <code>undetermined</code> carries a <code>review</code> reference — which review process ran, and when ("v0.1 review, 2026-06") — so the claim "we did our best" is checkable, and so a later determination reads as a dated improvement to the record rather than a contradiction of it. <code>undetermined</code> is process-relative and expected to change; the date is what marks <em>when we looked</em>.</li>
 </ul>
-<p><strong>Descriptive-field escape hatch.</strong> The bag-info fields most vulnerable to orphaned or provenance-broken models — <code>Pergamon-Origin-Jurisdiction</code>, <code>Pergamon-Release-Date</code>, <code>Pergamon-Parameter-Count</code>, <code>Pergamon-Weight-Precision</code> — MAY take the literal value <code>undetermined</code> rather than forcing a guess entered as fact. A confident fiction is worse than a marked gap.</p>
+<p>The bag-info fields most vulnerable to orphaned or provenance-broken models — <code>Pergamon-Origin-Jurisdiction</code>, <code>Pergamon-Release-Date</code>, <code>Pergamon-Parameter-Count</code>, <code>Pergamon-Weight-Precision</code> — MAY take the literal value <code>undetermined</code> rather than forcing a guess entered as fact. A confident fiction is worse than a marked gap.</p>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pergamon-completeness/0.1&quot;</span><span class="p">,</span>
@@ -1080,7 +1090,8 @@
 <span class="p">}</span>
 </code></pre></div>
 <p><code>Pergamon-Completeness</code> and <code>Pergamon-Regenerable</code> in <code>bag-info.txt</code> are the human-facing roll-up of this ledger; the ledger is the auditable detail behind them.</p>
-<h2 id="7-other-tag-file-schemas-sketch">7. Other tag-file schemas (sketch)</h2>
+<h2 id="The-Interpretive-Layer">7. The Interpretive Layer</h2>
+<p>"The pergamon/ files that describe and locate each model (besides the <code>completeness</code> ledger in Section 6). The field sets below are v0.1 and expected to firm up with a technical collaborator.</p>
 <ul>
 <li><strong><code>MODEL.json</code></strong> [Cat 1] — identity (id, family, params, precision), and the weight-file inventory: each file's role, byte size, format (<code>safetensors</code>/<code>gguf</code>/…), shard index, and SHA-256 (duplicating the manifest for self-containment of the descriptor).</li>
 <li><strong><code>ARCHITECTURE.json</code></strong> [Cat 2] — normalized architecture record: family/type, layer/width/head counts, context length, position-encoding, activation, plus a pointer to the as-released <code>config.json</code>. Pergamon's normalization sits <em>beside</em> the original, never replacing it.</li>
@@ -1147,7 +1158,7 @@
 <h2 id="10-open-questions-for-v02">10. Open questions for v0.2</h2>
 <ul>
 <li><strong>Bag↔tape coupling (deferred — a partnership question, by design).</strong> v0.1 keeps bags tape-unaware: a bag records nothing about which cartridge(s) carry it; membership and count live only in the tape manifest. This is the clean, low-coupling choice for launch. But a mature replication layer — which institution holds which copy, on what medium, verified when — needs the inverse mapping (bag → tapes → custodians). The right design for that is a question for archivists and librarians who actually run live preservation networks, not one Pergamon should settle unilaterally before it has those partners. <strong>This is exactly the kind of decision Pergamon needs institutional partners to make well — and a concrete reason the project seeks them.</strong></li>
-<li>Edge cases of "publicly released" (click-through gating, post-release withdrawal, research-access-only) — needs a one-line FAQ ruling and possibly a <code>Pergamon-Release-Channel</code> field.</li>
+<li><strong>Edge cases of "publicly released"</strong> (click-through gating, post-release withdrawal, research-access-only) "Publicly released" is a verifiable event, but how a model entered the public record varies — open download, click-through/EULA gating, research-access-by-application — and these differ in kind, not just detail. Rather than adjudicate each as a scope border dispute, v0.2 should consider recording the manner of release as its own descriptor. This also makes release-type a queryable property of the corpus. Deferred pending that design.</li>
 <li>Whether <code>MODEL.json</code> should carry rights-holder-published hashes inline or only in <code>PROVENANCE.json</code>.</li>
 <li>Multi-tape models that exceed one cartridge: a bag larger than a tape needs either a <code>Bag-Group-Identifier</code> split across tapes or an explicit "spanned bag" rule — interacts with the coupling question above.</li>
 <li>Legal-counsel review of <code>Pergamon-Origin-Jurisdiction</code> and <code>License-Class</code> as the fields a custodian's risk office reads first, and of the per-bag withdrawal mechanism that risk-segmentation depends on.</li>
