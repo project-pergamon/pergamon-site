@@ -1,0 +1,17 @@
+{
+  "schema": "archi-provenance/0.1",
+  "capture": {
+    "source": "hf.co/allenai/OLMo-7B",
+    "revision": "<commit-TKTK>",
+    "captured": "2026-06-29",
+    "agent": "Project Pergamon (demonstration build)"
+  },
+  "rights_holder_published_hashes": null,
+  "rights_holder_signature": null,
+  "authenticity_basis": "capture-only",
+  "authenticity_note": "No rights-holder-published hash or signature was recorded for this demonstration. Integrity is asserted from the capture event only; this is stated honestly rather than implied to be source authentication.",
+  "process_openness_basis": {
+    "status": "yes",
+    "basis": "Ai2 released training code, data (Dolma), and checkpoints/logs, so the model can in principle be retrained from recipe rather than only copied."
+  }
+}

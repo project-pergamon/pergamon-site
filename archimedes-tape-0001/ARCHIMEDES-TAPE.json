@@ -1,0 +1,40 @@
+{
+  "schema": "archi-tape/0.1",
+  "tape_id": "pergamon:archimedes:tape:0001",
+  "tape_title": "Archimedes I",
+  "series": "Archimedes",
+  "medium": {
+    "type": "LTO-9",
+    "native_capacity_bytes": 18000000000000,
+    "ltfs": true
+  },
+  "written": {
+    "date": "2026-06-29",
+    "agent": "Project Pergamon",
+    "host_jurisdiction": "US"
+  },
+  "selection_rationale": "First proof: permissive, regenerable, US-origin model with low custody risk.",
+  "bags": [
+    {
+      "path": "archimedes-olmo-7b",
+      "model_id": "allenai/OLMo-7B",
+      "payload_oxum": "2217.10",
+      "license_class": "permissive",
+      "process_openness": "open-process",
+      "origin_jurisdiction": "US",
+      "bag_root_digest": "sha256:4540d42941fb1b15d1f745c62626226928a4604ac7035d3a1aae3bd1b07417ba"
+    }
+  ],
+  "rollup": {
+    "bag_count": 1,
+    "total_payload_bytes": 2217,
+    "cartridge_used_fraction": 0.0,
+    "free_bytes": 17999999997783,
+    "license_classes": {
+      "permissive": 1
+    },
+    "origin_jurisdictions": {
+      "US": 1
+    }
+  }
+}

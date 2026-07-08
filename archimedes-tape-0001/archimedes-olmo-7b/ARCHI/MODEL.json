@@ -1,0 +1,42 @@
+{
+  "schema": "archi-model/0.1",
+  "model_id": "allenai/OLMo-7B",
+  "family": "OLMo",
+  "parameter_count": 6888017920,
+  "weight_precision": "FP32",
+  "release_date": "2024-02-01",
+  "rights_holder": "Allen Institute for Artificial Intelligence (Ai2)",
+  "weight_inventory_present": [
+    {
+      "path": "data/model/model-00001-of-00002.safetensors.PLACEHOLDER",
+      "role": "weight-shard-standin",
+      "sha256": "0d90a963681b1fcc217202e444cf778cc34cb70cfd6de352a7d413adb11262bf",
+      "bytes": 181
+    },
+    {
+      "path": "data/model/model-00002-of-00002.safetensors.PLACEHOLDER",
+      "role": "weight-shard-standin",
+      "sha256": "e36b668d9c86e5bda6421442dd05f0bf4eed35c9699fa9b836c70f8e47380947",
+      "bytes": 181
+    },
+    {
+      "path": "data/model/model.safetensors.index.json.PLACEHOLDER",
+      "role": "shard-index-standin",
+      "sha256": "46650eda1c391173a38bad1bd47e8b9c98fafee557c67d69f937950369e2e4d9",
+      "bytes": 176
+    },
+    {
+      "path": "data/model/tokenizer.json.PLACEHOLDER",
+      "role": "tokenizer-standin",
+      "sha256": "99ccb51e46c0c4916b212cc5971de2a31e9198b1172ea5efa06f95d38bdc26eb",
+      "bytes": 187
+    }
+  ],
+  "production_inventory": {
+    "note": "Illustrative real-release inventory; confirm exact filenames, sharding and sizes against allenai/OLMo-7B at bagging time.",
+    "format": "safetensors",
+    "approx_total_bytes": 27552071680,
+    "approx_shards": 2,
+    "precision": "FP32 master weights"
+  }
+}

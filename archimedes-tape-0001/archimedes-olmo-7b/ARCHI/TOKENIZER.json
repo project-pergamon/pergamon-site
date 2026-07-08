@@ -1,0 +1,19 @@
+{
+  "schema": "archi-tokenizer/0.1",
+  "type": "BPE",
+  "implementation": "GPTNeoXTokenizerFast (modified)",
+  "vocab_size_effective": 50280,
+  "embedding_vocab_size": 50304,
+  "special_tokens": [
+    "<|endoftext|>",
+    "<|padding|>"
+  ],
+  "pii_special_tokens": true,
+  "as_released_files": [
+    "data/model/tokenizer.json",
+    "data/model/tokenizer_config.json",
+    "data/model/special_tokens_map.json"
+  ],
+  "reconstructible_from_payload": true,
+  "note": "tokenizer.json is a *.PLACEHOLDER in this demonstration bag."
+}

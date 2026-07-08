@@ -1,0 +1,28 @@
+CUSTODIAN NOTES — allenai/OLMo-7B
+=================================
+
+WHY THIS MODEL
+  OLMo-7B (Ai2, 2024-02-01) is preserved as a reference specimen of a fully
+  open-process release: permissive license (Apache-2.0) AND open training
+  (data, code, checkpoints, logs all public). It is the cleanest example of a
+  "regenerable" model and serves as the first bag in the Archimedes Series.
+
+DEMONSTRATION NOTICE
+  This is a SCHEMA DEMONSTRATION bag. The metadata layer (ARCHI/) is real
+  and complete. The large binaries under data/model/ are clearly-marked
+  *.PLACEHOLDER stand-ins, because multi-gigabyte weights cannot ride in a
+  demonstration folder. Illustrative sizes/precision are flagged as such and
+  must be confirmed against the live release at bagging time:
+    - exact weight precision and on-disk format (#weights)
+    - exact shard filenames and byte sizes (#weights)
+    - the capture revision/commit (#provenance)
+
+GAPS
+  None withheld. Every component in COMPLETENESS.json is 'present'. Training
+  data, code, logs, and checkpoints were publicly released by Ai2; they are
+  referenced here, not carried inside this model bag (they are preserved as
+  their own artifacts, not stuffed into the model's bag).
+
+#weights      see MODEL.json -> production_inventory
+#provenance   see PROVENANCE.json -> capture.revision (currently <commit-TKTK>)
+#eval         see paper arXiv:2402.00838

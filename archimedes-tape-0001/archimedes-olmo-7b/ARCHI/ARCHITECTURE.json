@@ -1,0 +1,21 @@
+{
+  "schema": "archi-architecture/0.1",
+  "as_released_config": "data/model/config.json",
+  "normalized": {
+    "type": "decoder-only-transformer",
+    "model_type": "olmo",
+    "hidden_size": 4096,
+    "intermediate_size": 11008,
+    "ffn_activation": "SwiGLU",
+    "num_layers": 32,
+    "num_attention_heads": 32,
+    "num_kv_heads": 32,
+    "attention": "multi-head (no GQA)",
+    "position_encoding": "RoPE",
+    "context_length": 2048,
+    "bias": false,
+    "norm": "non-parametric LayerNorm",
+    "vocab_size": 50304
+  },
+  "note": "Normalized record sits beside the as-released config.json; it never replaces it."
+}

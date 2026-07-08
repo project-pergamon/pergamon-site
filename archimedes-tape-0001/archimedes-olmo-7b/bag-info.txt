@@ -1,0 +1,20 @@
+Source-Organization: Project Pergamon
+Contact-Email: TKTK@projectpergamon.org
+External-Identifier: pergamon:archimedes:olmo-7b:v1
+External-Description: OLMo-7B base, released 2024-02-01 by Ai2 (DEMONSTRATION BAG)
+Bagging-Date: 2026-06-29
+Payload-Oxum: 2217.10
+ARCHI-Profile-Version: 0.1
+ARCHI-Model-Identifier: allenai/OLMo-7B
+ARCHI-Model-Family: OLMo
+ARCHI-Parameter-Count: 6888017920
+ARCHI-Weight-Precision: FP32
+ARCHI-Release-Date: 2024-02-01
+ARCHI-Rights-Holder: Allen Institute for Artificial Intelligence (Ai2)
+ARCHI-Origin-Jurisdiction: US
+ARCHI-License-Identifier: Apache-2.0
+ARCHI-License-Class: permissive
+ARCHI-Process-Openness: open-process
+ARCHI-Completeness: complete
+ARCHI-Capture-Source: hf.co/allenai/OLMo-7B@<commit-TKTK>
+ARCHI-Authenticity-Basis: capture-only

@@ -1,0 +1,57 @@
+{
+  "schema": "archi-completeness/0.1",
+  "model_id": "allenai/OLMo-7B",
+  "components": {
+    "weights": {
+      "status": "present",
+      "path": "data/model/",
+      "note": "Stand-in binaries in this demonstration; production carries the released safetensors."
+    },
+    "architecture_config": {
+      "status": "present",
+      "path": "data/model/config.json"
+    },
+    "tokenizer": {
+      "status": "present",
+      "path": "data/model/tokenizer.json"
+    },
+    "original_license": {
+      "status": "present",
+      "path": "data/model/LICENSE"
+    },
+    "model_card": {
+      "status": "present",
+      "path": "data/model/README.md"
+    },
+    "training_data": {
+      "status": "present",
+      "reason": "Dolma was publicly released by the rights-holder.",
+      "external_ref": "allenai/dolma",
+      "note": "Referenced, not carried in-bag: the corpus is preserved separately, not inside this model bag."
+    },
+    "training_code": {
+      "status": "present",
+      "external_ref": "github.com/allenai/OLMo",
+      "note": "Publicly released; referenced, not carried in-bag."
+    },
+    "training_logs": {
+      "status": "present",
+      "external_ref": "Ai2 / W&B release",
+      "note": "Publicly released per the model card; referenced, not carried in-bag."
+    },
+    "intermediate_checkpoints": {
+      "status": "present",
+      "external_ref": "allenai/OLMo-7B revisions",
+      "note": "Per-1000-step checkpoints publicly released; referenced, not carried in-bag."
+    },
+    "evaluation_results": {
+      "status": "present",
+      "external_ref": "paper arXiv:2402.00838"
+    }
+  },
+  "rollup": {
+    "completeness": "complete",
+    "process_openness": "open-process"
+  },
+  "note": "OLMo-7B is the rare fully-open specimen: nothing is withheld. A closed-training model would instead show training_data/code/logs as 'withheld' with reasons routed to CUSTODIAN.txt."
+}

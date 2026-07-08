@@ -1,0 +1,6 @@
+{
+  "model_max_length": 2048,
+  "tokenizer_class": "GPTNeoXTokenizerFast",
+  "eos_token": "<|endoftext|>",
+  "pad_token": "<|padding|>"
+}

@@ -1,0 +1,11 @@
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color: #251B12;        /* chocolate */
+  --md-accent-fg-color:  #B14A28;        /* brick */
+  --md-default-bg-color: #F3EAD0;        /* parchment */
+  --md-typeset-a-color:  #A6543E;        /* sienna */
+  --md-code-bg-color:    #E4D2AB;        /* muted cream */
+}
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+  font-family: Marcellus, "Times New Roman", serif;
+  font-weight: 400;
+}
