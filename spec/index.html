@@ -1,0 +1,1019 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ARCHI — a BagIt profile for preserving publicly released AI models.">
+      
+      
+      
+        <link rel="canonical" href="https://projectpergamon.org/technical-docs/spec/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../vocabulary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Specification - Pergamon Technical Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spectral:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Spectral";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/pergamon.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#archi-the-archimedes-profile-v01-draft" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Pergamon Technical Documentation" class="md-header__button md-logo" aria-label="Pergamon Technical Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pergamon Technical Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Specification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Pergamon Technical Documentation" class="md-nav__button md-logo" aria-label="Pergamon Technical Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pergamon Technical Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-scope-and-the-three-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Scope and the three layers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-reconstruction-not-regeneration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Reconstruction, not regeneration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-payload-annotation-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The payload / annotation split
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bag-layout-one-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bag layout (one model)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bag-infotxt-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. bag-info.txt fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-unauthorized-alterations-and-inauthentic-sources-are-governance-level-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Unauthorized Alterations and Inauthentic Sources are Governance-Level Challenges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-the-completeness-ledger-completenessjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. The completeness ledger — COMPLETENESS.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-the-interpretive-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. The Interpretive Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-the-tape-layer-many-bags-per-cartridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. The tape layer — many bags per cartridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-open-questions-for-v02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Open questions for v0.2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vocabulary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vocabulary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crosswalk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards crosswalk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Worked example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="archi-the-archimedes-profile-v01-draft">ARCHI — The Archimedes Profile — v0.1 (DRAFT)<a class="headerlink" href="#archi-the-archimedes-profile-v01-draft" title="Permanent link">&para;</a></h1>
+<p><em>ARCHI: </em><em>A</em><em>rchiving the </em><em>R</em><em>e</em><em>C</em><em>onstructible </em><em>H</em><em>istory of </em><em>I</em><em>ntelligence.</em></p>
+<p>A BagIt Profile for preserving publicly released AI models as self-describing, verifiable preservation units, written many-to-a-tape.</p>
+<p><strong>Status:</strong> A proof of concept, an opening dialogue, and an invitation to collaborate. Intended to be hardened with a technical collaborator and legal counsel before first custody transfer.
+<strong>Conforms to:</strong> RFC 8493 (BagIt File Packaging Format, V1.0) and the community <em>bagit-profiles</em> convention.
+<strong>Profile document:</strong> <code>archi-profile-v0.1.json</code>
+<strong>Rev note:</strong> this revision separates the <em>bag</em> (one model) from the <em>tape</em> (many bags); see §1 and §9.</p>
+<hr />
+<h2 id="1-scope-and-the-three-layers">1. Scope and the three layers<a class="headerlink" href="#1-scope-and-the-three-layers" title="Permanent link">&para;</a></h2>
+<p>The system distinguishes between three operative layers in the work of preservation:</p>
+<ul>
+<li><strong>Model</strong> — the intellectual object: a publicly released AI model, itself consisting of multiple components.</li>
+<li><strong>Bag</strong> — the unit of <em>packaging and verification</em>. One bag wraps <strong>exactly one model</strong> (RFC 8493 + the Archimedes Profile). The bag is independently verifiable, independently custodiable, independently withdrawable.</li>
+<li><strong>Tape</strong> — the physical <strong>container of bags</strong>. One LTO-9 cartridge carries <strong>one or more bags</strong>. The tape is a carrier, not itself a bag.</li>
+</ul>
+<p>"Publicly released" means <em>released by the rights-holder for public download, on any terms</em> — which admits permissive, use-restricted, and redistribution-restricted models alike, and excludes <strong>API-only models</strong>, which are flatly non-public: no weights were ever released, so there is no artifact to preserve (the release <em>event</em> may still merit an interpretive record within the <code>ARCHI/</code> annotation category). ARCHI makes no claim that a model is "open" — rather, the metadata treats "open-ness" as an objective list of distinct, verifiable decisions, each held by a responsible party. <em>How</em> a model entered the public record — including withdrawn and leaked releases — is the <code>ARCHI-Release-Channel</code> question, taken up with the accountability machinery behind it in §11.</p>
+<p>The ARCHI Profile governs <strong>packaging, integrity, and self-description</strong> at the bag level, and <strong>indexing</strong> at the tape level. It is deliberately not a transfer <em>protocol</em> (discovery, replication scheduling, audit voting, repair); those belong to a network layer above it.</p>
+<p><strong>A bag is intentionally tape-agnostic.</strong> It records nothing about which cartridge carries it or what its tapemates are. How many bags fit on a tape is a <em>deployment fact</em> that varies by model selection, size, precision, and LTO generation — so it lives in the tape manifest (§9), never in the bag. This keeps the bag a stable, portable atom that can be re-written onto any medium without editing.</p>
+<h2 id="2-reconstruction-not-regeneration">2. Reconstruction, not regeneration<a class="headerlink" href="#2-reconstruction-not-regeneration" title="Permanent link">&para;</a></h2>
+<p>ARCHI draws a deliberate line between two things easily  conflated. <strong>Regeneration</strong> is rebuilding a model from its recipe — the training data, the training code, the full checkpoint trajectory — such that you could produce the weights again from scratch. <strong>Reconstruction</strong> is understanding and re-instantiating the <em>artifact</em> from what survives: the weights, the architecture, the tokenizer, and the record of where they came from. ARCHI's scope - and Project Pergamon's scope - is reconstruction.</p>
+<p>Here, an analogy to archaeological preservation can be illuminating. Roman concrete (like that in the Pantheon dome) outperforms modern concrete in specific ways. When we preserve the Pantheon as an artifact, we can interpret its likely behavior (not falling down for a very long time), and formulate questions about its nature (is Roman concrete different from modern concrete, and how?). But no archive can produce the curriculum, standard, or discourse to which ancient Romans referred when mixing their materials (the recipe was lost with the empire). Remarkably, <strong>we may not have needed one</strong>. New methods of microscopy and spectroscopy recently recovered the lime clasts and hot-mixing process that gave Roman concrete its superior qualities. <strong>The recipe was read from the artifact itself, by techniques that were unimaginable when the building was first slated for preservation.</strong> A preserved artifact served as a backup of the knowledge that had rendered it, and the artifact held those traces until a method that could read them arrived.</p>
+<p>Thus, a model preserved for reconstruction can be run, examined, situated in its lineage, and interpreted by future scholarship, even where regeneration is permanently foreclosed. The five records (§3) enclose exactly the material that makes reconstruction possible and that Pergamon can feasibly and lawfully hold; the heavier regeneration material (like training corpora, checkpoint series, optimizer states) is preserved <em>by reference</em> to separately-stewarded artifacts where it exists, marking the exact joint where institutional collabortion will fit.</p>
+<h2 id="3-the-payload-annotation-split">3. The payload / annotation split<a class="headerlink" href="#3-the-payload-annotation-split" title="Permanent link">&para;</a></h2>
+<p>BagIt treats the payload as opaque octets and does not interpret it. The Archimedes Profile uses that property as a discipline:</p>
+<ul>
+<li><strong><code>data/</code></strong> holds the model <strong>exactly as the rights-holder released it</strong> — weights, the lab's own config files, tokenizer, the original <code>LICENSE</code>, the original model card. These bytes are <em>never edited</em> by Pergamon. The payload manifests verify that this artifact is byte-identical to what a third party would obtain from the source.</li>
+<li><strong><code>ARCHI/</code></strong> holds Pergamon's <strong>authored interpretive layer</strong> as tag files — provenance, the completeness ledger, custodian documentation, and normalized descriptors that <em>point into</em> <code>data/</code> without modifying it.</li>
+</ul>
+<p>This mirrors the OAIS distinction between Content Information (the release) and Preservation Description Information (the annotations), and it keeps the released artifact independently checkable, separate from any commentary on it.</p>
+<p><strong>The five records.</strong> The <code>[Cat 1]</code>–<code>[Cat 5]</code> tags in the layout below refer to Project Pergamon's five categories of reconstruction material — the set a future operator needs to interpret a model's likely behaviors:</p>
+<ol>
+<li><strong>Model weights &amp; state</strong> — the trained parameters themselves</li>
+<li><strong>Architecture &amp; configuration</strong> — what the numbers are and how they are arranged</li>
+<li><strong>Tokenizer &amp; metadata</strong> — the mapping between text and the model's input space</li>
+<li><strong>Provenance &amp; integrity</strong> — where these bytes came from, and the honest basis for trusting them</li>
+<li><strong>Documentation for future custodians</strong> — the plain-language account of all of the above, including every gap and failure state</li>
+</ol>
+<p>These are Pergamon's terms, not OAIS's, but they sort cleanly into the Content/Documentation split above: categories 1–3 are the released artifact (Content Information, in <code>data/</code>); categories 4–5 are annotation about it (Preservation Description Information, in <code>ARCHI/</code>). Together, the payload and the interpretive layer aim to cover as much of the five as each release permits — and where a category cannot be covered, the completeness ledger (§7) marks the gap rather than leaving it silent. Whereof a release withholds, the bag cannot speak; but it must always account for its silences.</p>
+<h2 id="4-bag-layout-one-model">4. Bag layout (one model)<a class="headerlink" href="#4-bag-layout-one-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>archimedes-&lt;model-id&gt;/
+├── bagit.txt                     # BagIt declaration (version + encoding)
+├── bag-info.txt                  # bag + model metadata (§5)
+├── manifest-sha256.txt           # payload checksums
+├── manifest-sha512.txt           # payload checksums (algorithm diversity)
+├── tagmanifest-sha256.txt        # tag-file checksums
+├── tagmanifest-sha512.txt
+├── ARCHI/                        # ARCHI interpretive layer (tag files)
+│   ├── README.txt                # [Cat 5] plain-UTF-8 bootstrap; root of the recursion
+│   ├── MODEL.json                # [Cat 1] identity + weight-file descriptor
+│   ├── ARCHITECTURE.json         # [Cat 2] normalized architecture record
+│   ├── TOKENIZER.json            # [Cat 3] tokenizer descriptor
+│   ├── PROVENANCE.json           # [Cat 4] capture chain + integrity/authenticity
+│   ├── COMPLETENESS.json         # the completeness ledger (§7)
+│   └── CUSTODIAN.txt             # [Cat 5] narrative docs + gap explanations
+└── data/                         # released bytes, unaltered
+    └── model/
+        ├── &lt;weight files as released&gt;          # [Cat 1]
+        ├── config.json / generation_config.json # [Cat 2, as released]
+        ├── tokenizer.json / vocab / merges      # [Cat 3, as released]
+        ├── LICENSE                              # as released
+        └── README.md (model card)               # as released
+</code></pre></div>
+<h2 id="5-bag-infotxt-fields">5. <code>bag-info.txt</code> fields<a class="headerlink" href="#5-bag-infotxt-fields" title="Permanent link">&para;</a></h2>
+<p>Colon-separated <code>Key: Value</code>, UTF-8, one element per line (RFC 8493 §2.2.2). Standard reserved fields plus a <code>ARCHI-</code> namespace. Note: there is deliberately <strong>no tape or count field here</strong> (§1).</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Req</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Source-Organization</code></td>
+<td>✓</td>
+<td>Contributing custodian/archivist</td>
+<td><code>Project Pergamon</code></td>
+</tr>
+<tr>
+<td><code>Contact-Email</code></td>
+<td>✓</td>
+<td>Accountable contact</td>
+<td><code>tk@projectpergamon.org</code></td>
+</tr>
+<tr>
+<td><code>External-Identifier</code></td>
+<td>✓</td>
+<td>Stable ID for this bag</td>
+<td><code>pergamon:archimedes:deepseek-llm-67b-base:v1</code></td>
+</tr>
+<tr>
+<td><code>External-Description</code></td>
+<td>✓</td>
+<td>One-line human description</td>
+<td><code>DeepSeek LLM 67B base, released 2023-11-29</code></td>
+</tr>
+<tr>
+<td><code>Bagging-Date</code></td>
+<td>✓</td>
+<td>Date the bag was made</td>
+<td><code>2026-06-29</code></td>
+</tr>
+<tr>
+<td><code>Payload-Oxum</code></td>
+<td>✓</td>
+<td><code>octetCount.streamCount</code> quick check</td>
+<td><code>134217728000.12</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Profile-Version</code></td>
+<td>✓</td>
+<td>Profile version</td>
+<td><code>0.1</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Model-Identifier</code></td>
+<td>✓</td>
+<td>Canonical model id</td>
+<td><code>deepseek-ai/deepseek-llm-67b-base</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Model-Family</code></td>
+<td>✓</td>
+<td>Human family name</td>
+<td><code>DeepSeek LLM</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Parameter-Count</code></td>
+<td>✓</td>
+<td>Parameters (integer or band)</td>
+<td><code>67000000000</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Weight-Precision</code></td>
+<td>✓</td>
+<td>Released precision</td>
+<td><code>BF16</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Release-Date</code></td>
+<td>✓</td>
+<td>Original public release</td>
+<td><code>2023-11-29</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Rights-Holder</code></td>
+<td>✓</td>
+<td>Releasing entity</td>
+<td><code>DeepSeek</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Origin-Jurisdiction</code></td>
+<td>✓</td>
+<td>ISO country of lead developer</td>
+<td><code>CN</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-License-Identifier</code></td>
+<td>✓</td>
+<td>SPDX id or named license</td>
+<td><code>DeepSeek-License</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-License-Class</code></td>
+<td>✓</td>
+<td><code>permissive</code> | <code>restricted-use</code> | <code>restricted-redistribution</code> | <code>undetermined</code></td>
+<td><code>restricted-redistribution</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Process-Openness</code></td>
+<td>✓</td>
+<td>Openness of the training process — roll-up of the ledger's training-material components (§7): <code>open-process</code>|<code>weights-plus-partial</code>|<code>weights-only</code>|<code>undetermined</code></td>
+<td><code>weights-only</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Completeness</code></td>
+<td>✓</td>
+<td><code>complete</code>|<code>partial</code>|<code>weights-only</code></td>
+<td><code>weights-only</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Capture-Source</code></td>
+<td>✓</td>
+<td>Where captured, with revision</td>
+<td><code>hf.co/deepseek-ai/...@&lt;commit&gt;</code></td>
+</tr>
+<tr>
+<td><code>ARCHI-Authenticity-Basis</code></td>
+<td>✓</td>
+<td>Strongest anchor available (§6)</td>
+<td><code>capture-only</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>License-Class</code> and <code>Process-Openness</code> are <strong>independent axes</strong> — license openness and process openness are different questions, and the Profile records both.</p>
+<h2 id="6-unauthorized-alterations-and-inauthentic-sources-are-governance-level-challenges">6. Unauthorized Alterations and Inauthentic Sources are Governance-Level Challenges<a class="headerlink" href="#6-unauthorized-alterations-and-inauthentic-sources-are-governance-level-challenges" title="Permanent link">&para;</a></h2>
+<p>Understanding what the ARCHI Profile <strong>cannot</strong> guarantee, as distinct from the larger Project Pergamon, is crucial for responsible archiving without overclaiming:</p>
+<ul>
+<li>
+<p><strong>Internal integrity</strong> — the dual <code>manifest-sha256</code> / <code>manifest-sha512</code> files certify that this bag's contents are complete and unaltered <em>since bagging</em>. Algorithm diversity hedges a future break in either hash. This catches decay and accidental corruption. Per RFC 8493, BagIt fixity is <strong>not designed to defend against active attack</strong> — an adversary who can rewrite a file can rewrite its checksum. </p>
+</li>
+<li>
+<p><strong>Source authenticity</strong> — whether the payload is the <em>genuine release</em> (not a fork) may require interpretive decisions grounded in expert forensic and academic methodologies. <code>PROVENANCE.json</code> records the strongest anchor that actually exists, and <code>ARCHI-Authenticity-Basis</code> responsibilizes the scholar who made the call for any interpretive claims:</p>
+<ul>
+<li><code>rights-holder-signature</code> — the release was cryptographically signed by the rights-holder; strongest.</li>
+<li><code>rights-holder-hash</code> — the rights-holder published a checksum at release that the payload matches.</li>
+<li><code>capture-only</code> — no independent anchor; integrity asserted from a documented capture event only. <strong>This is an honest admission, not a defect</strong> — it tells a future scholar exactly how far the authenticity claim extends.</li>
+<li><code>undetermined</code> — our review could not establish an anchor (carries a review reference).</li>
+</ul>
+</li>
+</ul>
+<p>The ARCHI Profile never lets a manifest match <em>masquerade</em> as proof of authenticity. Cross-tape Byzantine quorum (a network-layer concern, above this Profile) is what defends the constellation against tampering; per-bag manifests that name the human custodian at point of acquisition turn unanchored claims into personal liabilities. And both solutions are located in the purview of governance. </p>
+<h2 id="7-the-completeness-ledger-completenessjson">7. The completeness ledger — <code>COMPLETENESS.json</code><a class="headerlink" href="#7-the-completeness-ledger-completenessjson" title="Permanent link">&para;</a></h2>
+<p>The ARCHI format forbids bare <code>null</code>, because it conflates "the lab never released this" with "A Pergamon custodian failed to record it." To avoid this ambiguity, every component of an acquisition record carries an explicit <strong>status</strong> from a controlled vocabulary; any non-<code>present</code> status MUST carry a <code>reason</code> and SHOULD link to a <code>CUSTODIAN.txt</code> anchor.</p>
+<p><strong>Status vocabulary</strong></p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Means</th>
+<th>Accountability</th>
+<th>Required floor</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>present</code></td>
+<td>Captured and in the bag</td>
+<td>inward (governance and practices)</td>
+<td><code>path</code> or <code>external_ref</code></td>
+<td>weights, config</td>
+</tr>
+<tr>
+<td><code>withheld</code></td>
+<td>Existed; the rights-holder chose not to release it</td>
+<td>outward (lab's decision)</td>
+<td><code>evidence</code> of intent + <code>reason</code></td>
+<td>closed training data</td>
+</tr>
+<tr>
+<td><code>not-applicable</code></td>
+<td>Never existed for this model</td>
+<td>structural</td>
+<td><code>reason</code></td>
+<td>no merges file for a byte-level tokenizer</td>
+</tr>
+<tr>
+<td><code>unrecoverable</code></td>
+<td>Was publicly released but Pergamon could not capture it</td>
+<td>inward (capture failure)</td>
+<td><code>reason</code></td>
+<td>eval card offline at capture</td>
+</tr>
+<tr>
+<td><code>undetermined</code></td>
+<td>Pergamon's review ran and was inconclusive</td>
+<td>inward (knowledge limit, handed forward)</td>
+<td><code>review</code> reference with date</td>
+<td>training logs of indeterminate status</td>
+</tr>
+</tbody>
+</table>
+<p>There is deliberately <strong>no <code>unknown</code></strong>. All descriptions point to concrete actors, observable events, and accountable processes (or failure thereof). <code>withheld</code> documents <em>the rights-holder's</em> decision; <code>unrecoverable</code> and <code>undetermined</code> document <em>Pergamon's</em> limits: <code>unrecoverable</code> recording a capture failure (we know it existed; we couldn't get it), <code>undetermined</code> a knowledge failure (our review could not establish it). A future interpreter can always tell which is which.</p>
+<p><strong>Gaps in the record come with marked responsibility:</strong></p>
+<ul>
+<li><strong><code>withheld</code> requires evidence of intent.</strong> Asserting that a rights-holder <em>chose</em> to withhold something is a claim about their decision, and an unevidenced claim of intent is itself an unmarked guess. <code>withheld</code> is legal only when the choice can be evidenced (the lab said so; the release included everything <em>but</em> this; the license implies it). When intent cannot be evidenced, the honest status is <code>undetermined</code> — about the gap's very nature.</li>
+<li><strong><code>undetermined</code> has to show it looked.</strong> Every <code>undetermined</code> carries a <code>review</code> reference — which review process ran, and when ("v0.1 review, 2026-06") — so the claim "we did our best" is checkable, and so a later determination reads as a dated improvement to the record rather than a contradiction of it. <code>undetermined</code> is process-relative and expected to change; the date is what marks <em>when we looked</em>.</li>
+</ul>
+<p><strong>Ambiguity must be declared as an authored stance.</strong> The bag-info fields most vulnerable to orphaned or provenance-broken models — <code>ARCHI-Origin-Jurisdiction</code>, <code>ARCHI-Release-Date</code>, <code>ARCHI-Parameter-Count</code>, <code>ARCHI-Weight-Precision</code> — MAY take the literal value <code>undetermined</code> rather than forcing a guess entered as fact. A confident fiction is worse than a marked gap.</p>
+<p><strong>A reference is a preserved fossil, not a live link.</strong> When a component is recorded as present-by-reference — most often the training corpus, which is typically far larger than the model and composed of third-party works held elsewhere — the reference must capture enough of the component to remain meaningful <em>after its target is gone</em>: the component's identity, composition, scale, source description, and its status at the time of capture. A reference that is merely a URL rots exactly like the material it points to; a preserved <em>description</em> of a corpus (what it contained, how it was assembled, where it lived, under what terms) remains a genuine historical record even once the corpus itself becomes unrecoverable. The pointer is a fossil of the thing, not a hyperlink to it.</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;archi-completeness/0.1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;model_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deepseek-ai/deepseek-llm-67b-base&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;components&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;weights&quot;</span><span class="p">:</span><span class="w">                 </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/model/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">134217728000</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;architecture_config&quot;</span><span class="p">:</span><span class="w">     </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/model/config.json&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;tokenizer&quot;</span><span class="p">:</span><span class="w">               </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/model/tokenizer.json&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;original_license&quot;</span><span class="p">:</span><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/model/LICENSE&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;model_card&quot;</span><span class="p">:</span><span class="w">              </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;present&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/model/README.md&quot;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;training_data&quot;</span><span class="p">:</span><span class="w">           </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;withheld&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;evidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Release shipped weights, config, and tokenizer but no corpus; model card names the data only in aggregate terms.&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Training corpus was never publicly released by the rights-holder.&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;custodian_note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ARCHI/CUSTODIAN.txt#training-data&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;training_code&quot;</span><span class="p">:</span><span class="w">           </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;withheld&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;evidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Repository contains inference code only; no training scripts in any release artifact.&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No training code accompanied the release.&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;intermediate_checkpoints&quot;</span><span class="p">:{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-applicable&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Only final weights were part of this release.&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;training_logs&quot;</span><span class="p">:</span><span class="w">           </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;undetermined&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;review&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v0.1 review, 2026-06&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Our review could not establish whether logs exist internally.&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;evaluation_results&quot;</span><span class="p">:</span><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unrecoverable&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;reason_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source-removed&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Benchmark card linked from the release was offline at capture (2026-06-29).&quot;</span><span class="p">,</span>
+<span class="w">                                 </span><span class="nt">&quot;custodian_note&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ARCHI/CUSTODIAN.txt#eval&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;rollup&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;completeness&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weights-only&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;process_openness&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weights-only&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>ARCHI-Completeness</code> and <code>ARCHI-Process-Openness</code> in <code>bag-info.txt</code> are the human-facing roll-ups of this ledger; the ledger is the auditable detail behind them. <code>Process-Openness</code> in particular summarizes the ledger's training-material components (<code>training_data</code>, <code>training_code</code>, checkpoints): if those are present or preserved-by-reference, the release is <code>open-process</code>; if withheld, <code>weights-only</code>. The full references themselves live in the ledger, following the preserved-fossil discipline above — the roll-up points at the pointers; it never replaces them.</p>
+<h2 id="8-the-interpretive-layer">8. The Interpretive Layer<a class="headerlink" href="#8-the-interpretive-layer" title="Permanent link">&para;</a></h2>
+<p>The <code>ARCHI/</code> files that describe and locate each model (besides the completeness ledger in §7). The field sets below are v0.1 and expected to firm up with a technical collaborator; the structure is stable.</p>
+<ul>
+<li><strong><code>MODEL.json</code></strong> [Cat 1] — identity (id, family, params, precision), and the weight-file inventory: each file's role, byte size, format (<code>safetensors</code>/<code>gguf</code>/…), shard index, and SHA-256 (duplicating the manifest for self-containment of the descriptor).</li>
+<li><strong><code>ARCHITECTURE.json</code></strong> [Cat 2] — normalized architecture record: family/type, layer/width/head counts, context length, position-encoding, activation, plus a pointer to the as-released <code>config.json</code>. Pergamon's normalization sits <em>beside</em> the original, never replacing it.</li>
+<li><strong><code>TOKENIZER.json</code></strong> [Cat 3] — tokenizer type (BPE/SentencePiece/byte-level), vocab size, special tokens, and pointers to the as-released tokenizer files. Flags whether the tokenizer is reconstructible from the payload alone.</li>
+<li><strong><code>PROVENANCE.json</code></strong> [Cat 4] — capture chain (source URL, repo revision/commit, capture timestamp, capturing agent), any rights-holder-published hashes/signatures, and the authenticity basis (§6).</li>
+<li><strong><code>CUSTODIAN.txt</code></strong> [Cat 5] — plain-language narrative for a future custodian: what this model is, why it was preserved, every gap from <code>COMPLETENESS.json</code> explained in prose, and any handling notes. Anchors (e.g. <code>#training-data</code>) are referenced from the ledger.</li>
+</ul>
+<h2 id="9-the-tape-layer-many-bags-per-cartridge">9. The tape layer — many bags per cartridge<a class="headerlink" href="#9-the-tape-layer-many-bags-per-cartridge" title="Permanent link">&para;</a></h2>
+<p>A tape is an LTFS filesystem whose root holds one or more complete bags plus a tape manifest. <strong>The bags do not know they share a cartridge; the tape manifest is the only place membership and count are recorded.</strong> This is the clean, low-coupling choice for v0.1 (see the deferred coupling question in §11).</p>
+<p><strong>Tape layout</strong></p>
+<div class="highlight"><pre><span></span><code>&lt;LTFS volume root&gt;/
+├── TAPE-README.txt              # plain-UTF-8 bootstrap for the whole cartridge
+├── ARCHIMEDES-TAPE.json         # tape manifest: which bags, order, rollup
+├── archimedes-olmo-7b/          # a complete, standalone bag
+│   └── (bagit.txt, bag-info.txt, manifest-*, tagmanifest-*, ARCHI/, data/)
+├── archimedes-pythia-12b/       # another complete bag
+└── archimedes-bloom-176b/       # another
+</code></pre></div>
+<p>Each subdirectory is a fully valid Archimedes bag on its own. The tape manifest is an index over them, not a bag itself, and is <strong>not</strong> governed by BagIt — it is an ARCHI construct.</p>
+<p><strong><code>ARCHIMEDES-TAPE.json</code></strong> — the count lives in <code>rollup.bag_count</code>; the membership lives in <code>bags[]</code>; nothing here is duplicated inside the bags.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;archi-tape/0.1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tape_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pergamon:archimedes:tape:0001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tape_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Archimedes I&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;series&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Archimedes&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;medium&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LTO-9&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;native_capacity_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18000000000000</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ltfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;written&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-06-29&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Project Pergamon&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;host_jurisdiction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;US&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;selection_rationale&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First proof: permissive, open-process Western models with low custody risk.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;bags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;archimedes-olmo-7b&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;model_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;allenai/OLMo-7B&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;payload_oxum&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;13958643712.4&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;license_class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;permissive&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;process_openness&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;open-process&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;origin_jurisdiction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;US&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;bag_root_digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:&lt;digest of this bag&#39;s tagmanifest-sha256.txt&gt;&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;rollup&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;bag_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;total_payload_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13958643712</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cartridge_used_fraction&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0008</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;free_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17986041356288</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;license_classes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;permissive&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;origin_jurisdictions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;US&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong><code>bag_root_digest</code></strong> gives the tape a way to commit to each bag without coupling the bag to the tape. It is the SHA-256 of the bag's <code>tagmanifest-sha256.txt</code>. Because that tag manifest checksums the payload manifests, which in turn checksum every payload file, a single digest transitively commits to the entire bag (a Merkle-style root). The tape vouches for its bags; the bags remain unaware of the tape.</p>
+<p><strong><code>TAPE-README.txt</code></strong> MUST be plain UTF-8 and is the cartridge-level bootstrap: what this tape is, the human-readable list of bags, the instruction that each subdirectory is a standalone bag whose own <code>ARCHI/README.txt</code> explains it, the selection rationale, and a contact. It terminates the representation-information recursion at the cartridge level, one rung above each bag's own README.</p>
+<p><strong>Serialization and write order.</strong></p>
+<ul>
+<li><strong>Serialization is forbidden</strong> at the bag level: a bag lives inside LTFS as a real directory tree, not a <code>.zip</code>/<code>.tar</code>, preserving direct file access and letting a custodian validate without unpacking.</li>
+<li><strong>Non-normative write recommendation:</strong> write the LTFS index, then <code>TAPE-README.txt</code> and <code>ARCHIMEDES-TAPE.json</code>, then the bags — so a custodian mounting the cartridge can read the orientation docs and the inventory from the front without winding to the end. LTO is linear; this is an access-time concern, not a capacity one. The entire annotation layer (every <code>ARCHI/</code> tree plus the tape manifest) is plain text and adds a negligible fraction of the cartridge.</li>
+</ul>
+<h2 id="10-validation">10. Validation<a class="headerlink" href="#10-validation" title="Permanent link">&para;</a></h2>
+<p><strong>ARCHI Bag-valid</strong> iff:</p>
+<ol>
+<li>It is a <em>valid</em> RFC 8493 bag (complete; every payload and tag checksum verifies).</li>
+<li>It satisfies <code>archi-profile-v0.1.json</code> (required <code>bag-info.txt</code> fields present with allowed values; required tag files present; serialization absent; BagIt version 1.0).</li>
+<li>Every <code>COMPLETENESS.json</code> component is <code>present</code> or carries a <code>reason</code>; every custodian-note pointer resolves.</li>
+</ol>
+<p>Steps 1–2 run on stock tooling (<code>bagit-python</code> + a <code>bagit-profiles</code> validator). Step 3 is ARCHI-specific.</p>
+<p><strong>Tape-valid</strong> iff:</p>
+<ol>
+<li>Every subdirectory named in <code>ARCHIMEDES-TAPE.json</code> <code>bags[]</code> is present and is itself Bag-valid.</li>
+<li>No bag is present on the tape that is absent from the manifest (no orphans).</li>
+<li>Each <code>bag_root_digest</code> matches the SHA-256 of the corresponding bag's <code>tagmanifest-sha256.txt</code>.</li>
+<li><code>rollup.bag_count</code> equals <code>len(bags)</code>.</li>
+</ol>
+<h2 id="11-open-questions-for-v02">11. Open questions for v0.2<a class="headerlink" href="#11-open-questions-for-v02" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Bag↔tape coupling (deferred — a partnership question, by design).</strong> v0.1 keeps bags tape-unaware: a bag records nothing about which cartridge(s) carry it; membership and count live only in the tape manifest. This is the clean, low-coupling choice for launch. But a mature replication layer — which institution holds which copy, on what medium, verified when — needs the inverse mapping (bag → tapes → custodians). The right design for that is a question for archivists and librarians who actually run live preservation networks, not one Pergamon should settle unilaterally before it has those partners. <strong>This is exactly the kind of decision Pergamon needs institutional partners to make well.</strong> To get involved, write to hello@projectpergamon.org.</li>
+<li>
+<p><strong><code>ARCHI-Release-Channel</code> — a taxonomy of release histories (next docket item).</strong> "Publicly released" is a verifiable event, but <em>how</em> a model entered the public record varies in kind, and those differences carry accountability with them. v0.2 should define a controlled vocabulary for the release-history field — the event stays the accession gate; the channel marks its character and makes release-type a queryable property of the corpus. Proposed values, including the two live edge cases:</p>
+<ul>
+<li><code>open-download</code> and <code>click-through</code> — ordinary channels; a gate anyone can pass is a <em>term</em> of release, not a bar to it.</li>
+<li><code>research-access</code> — released beyond the originating institution, but to a curated community by application. Whether this counts as "public" is a genuine ruling v0.2 must make, not assume.</li>
+<li><code>withdrawn</code> — released, then deleted (e.g. WizardLM-2, public for hours in April 2024 before takedown). The event criterion argues these are in scope, artifact and all — a later deletion cannot un-happen a release — with the withdrawal logged as a second provenance event and the class treated as <strong>priority-capture</strong> (windows can be hours; mirror-derived captures carry honest <code>capture-only</code>, upgradable to <code>rights-holder-hash</code> where the original release's file hashes survive in community records). The evidentiary stake: for models withdrawn on behavioral grounds, the weights are the only evidence by which the withdrawal's stated rationale can ever be historically examined.</li>
+<li><code>leaked</code> — public in fact, never released by the rights-holder: a failure of <em>authorization</em>, not existence. The leak-<em>record</em> (chronology, provenance, what escaped, the ecosystem that grew from it) is in scope under the same separable-holdings logic that lets a record travel where an artifact cannot; whether the leaked <em>artifact</em> may ever be accessioned is deferred to Governance Docket <strong>G6</strong> (custodian liability for unlicensed IP differs fundamentally from the deliberate-release cases).</li>
+</ul>
+<p>API-only models take no channel value: they are excluded upstream (§1), because no artifact was ever released.</p>
+</li>
+<li>
+<p>Whether <code>MODEL.json</code> should carry rights-holder-published hashes inline or only in <code>PROVENANCE.json</code>.</p>
+</li>
+<li>
+<p><strong>Multi-tape models — mostly a referencing question, not a spanning one.</strong> Analysis of the fully-open cases (OLMo-class) shows the bulk lives in training corpora and checkpoint series, not final weights — so most "too big for one tape" pressure dissolves into compact bags <em>referencing</em> separately-preserved heavy artifacts under the preserved-fossil discipline (§7), with <code>Process-Openness</code> as the roll-up. A <code>Bag-Group-Identifier</code> / spanned-bag rule remains the fallback for the rare bag that genuinely exceeds a cartridge; design both in v0.2, referencing-first.</p>
+</li>
+<li>
+<p>Legal-counsel review of <code>ARCHI-Origin-Jurisdiction</code> and <code>License-Class</code> as the fields a custodian's risk office reads first, and of the per-bag withdrawal mechanism that risk-segmentation depends on.</p>
+</li>
+<li><strong><code>accession-decision</code> event type (separable-holdings protocol).</strong> When a copy is transferred to an external (e.g. OAIS) archive carrying the <em>record</em> but not the operative weights, the omission must be logged as a first-class, structured provenance event — not left as a silent gap (the same <code>null</code>-vs-<code>withheld</code> discipline, one level up). Proposed shape in <code>PROVENANCE.json</code>: <code>event: payload-not-accessioned</code>, with <code>actor</code>, <code>date</code>, <code>basis</code> (legal instrument / institutional-capacity decision / Pergamon policy), <code>reason_code</code>, <code>narrative_pointer</code> → <code>CUSTODIAN.txt</code>, and crucially <code>full_holding_persists: &lt;constellation reference&gt;</code>. The status describes <em>this holding</em>, never the model's existence; the persistence pointer is what keeps federation honest (records "not <em>here</em>", not "gone"). Needs partner/counsel input on who may invoke it and on what showing.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Project Pergamon
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "toc.follow", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
