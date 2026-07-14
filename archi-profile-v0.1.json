@@ -1,0 +1,126 @@
+{
+  "BagIt-Profile-Info": {
+    "BagIt-Profile-Identifier": "https://projectpergamon.org/profiles/archi-profile-v0.1.json",
+    "BagIt-Profile-Version": "0.1",
+    "Source-Organization": "Project Pergamon",
+    "Contact-Email": "TKTK@projectpergamon.org",
+    "External-Description": "ARCHI (Archiving the ReConstructible History of Intelligence) constrains a BagIt bag to carry a single publicly released AI model as one preservation unit: weights and state, architecture and configuration, tokenizer, provenance and integrity information, and documentation for future custodians. The released bytes are preserved unaltered in the payload; the ARCHI interpretive layer is added as tag files. DRAFT v0.1 \u2014 pre-network.",
+    "Version": "0.1"
+  },
+  "Bag-Info": {
+    "Source-Organization": {
+      "required": true
+    },
+    "Contact-Email": {
+      "required": true
+    },
+    "External-Identifier": {
+      "required": true
+    },
+    "External-Description": {
+      "required": true
+    },
+    "Bagging-Date": {
+      "required": true
+    },
+    "Payload-Oxum": {
+      "required": true
+    },
+    "ARCHI-Profile-Version": {
+      "required": true,
+      "values": [
+        "0.1"
+      ]
+    },
+    "ARCHI-Model-Identifier": {
+      "required": true
+    },
+    "ARCHI-Model-Family": {
+      "required": true
+    },
+    "ARCHI-Parameter-Count": {
+      "required": true
+    },
+    "ARCHI-Weight-Precision": {
+      "required": true
+    },
+    "ARCHI-Release-Date": {
+      "required": true
+    },
+    "ARCHI-Rights-Holder": {
+      "required": true
+    },
+    "ARCHI-Origin-Jurisdiction": {
+      "required": true
+    },
+    "ARCHI-License-Identifier": {
+      "required": true
+    },
+    "ARCHI-License-Class": {
+      "required": true,
+      "values": [
+        "permissive",
+        "restricted-use",
+        "restricted-redistribution",
+        "undetermined"
+      ]
+    },
+    "ARCHI-Capture-Source": {
+      "required": true
+    },
+    "ARCHI-Authenticity-Basis": {
+      "required": true,
+      "values": [
+        "rights-holder-signature",
+        "rights-holder-hash",
+        "capture-only",
+        "undetermined"
+      ]
+    },
+    "ARCHI-Ledger-Resolution": {
+      "required": true,
+      "values": [
+        "resolved",
+        "unresolved"
+      ],
+      "description": "Whether the completeness ledger contains any undetermined component. Derived from ARCHI/COMPLETENESS.json; the validator enforces agreement."
+    }
+  },
+  "Manifests-Required": [
+    "sha256",
+    "sha512"
+  ],
+  "Manifests-Allowed": [
+    "sha256",
+    "sha512"
+  ],
+  "Tag-Manifests-Required": [
+    "sha256",
+    "sha512"
+  ],
+  "Tag-Files-Required": [
+    "ARCHI/README.txt",
+    "ARCHI/MODEL.json",
+    "ARCHI/ARCHITECTURE.json",
+    "ARCHI/TOKENIZER.json",
+    "ARCHI/PROVENANCE.json",
+    "ARCHI/COMPLETENESS.json",
+    "ARCHI/CUSTODIAN.txt"
+  ],
+  "Tag-Files-Allowed": [
+    "ARCHI/README.txt",
+    "ARCHI/MODEL.json",
+    "ARCHI/ARCHITECTURE.json",
+    "ARCHI/TOKENIZER.json",
+    "ARCHI/PROVENANCE.json",
+    "ARCHI/COMPLETENESS.json",
+    "ARCHI/CUSTODIAN.txt",
+    "ARCHI/extra/*"
+  ],
+  "Allow-Fetch.txt": false,
+  "Serialization": "forbidden",
+  "Accept-Serialization": [],
+  "Accept-BagIt-Version": [
+    "1.0"
+  ]
+}

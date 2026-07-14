@@ -1,0 +1,42 @@
+site_name: Pergamon Technical Documentation
+site_url: https://projectpergamon.org/technical-docs/
+site_description: ARCHI — a BagIt profile for preserving publicly released AI models.
+docs_dir: docs
+site_dir: site
+copyright: Project Pergamon
+
+theme:
+  name: material
+  font:
+    text: Spectral
+    code: Roboto Mono
+  palette:
+    scheme: default
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - toc.follow
+    - search.suggest
+    - content.code.copy
+
+extra_css:
+  - stylesheets/pergamon.css
+
+nav:
+  - Home: index.md
+  - The Archimedes Profile:
+      - Specification v0.1: spec.md
+      - Markedness vocabulary: vocabulary.md
+      - Validation: validation.md
+  - Worked example: example.md
+  - Standards crosswalk: crosswalk.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - toc:
+      permalink: true
