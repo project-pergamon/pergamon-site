@@ -971,8 +971,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong><code>bag_root_digest</code></strong> gives the tape a way to commit to each bag without coupling the bag to the tape. It is the SHA-256 of the bag's <code>tagmanifest-sha256.txt</code>. Because that tag manifest checksums the payload manifests, which in turn checksum every payload file, a single digest transitively commits to the entire bag (a Merkle-style root). The tape vouches for its bags; the bags remain unaware of the tape. To hash the tag manifest in your own implementation, download the worked example .zip and run the following commands in xx/xx/xx
-cd archimedes-tape-0001/archimedes-olmo-7b
+<p><strong><code>bag_root_digest</code></strong> gives the tape a way to commit to each bag without coupling the bag to the tape. It is the SHA-256 of the bag's <code>tagmanifest-sha256.txt</code>. Because that tag manifest checksums the payload manifests, which in turn checksum every payload file, a single digest transitively commits to the entire bag (a Merkle-style root). The tape vouches for its bags; the bags remain unaware of the tape. To hash the tag manifest in your own implementation, download the worked example .zip and run cd archimedes-tape-0001/archimedes-olmo-7b
 sha256sum tagmanifest-sha256.txt</p>
 <p><strong><code>TAPE-README.txt</code></strong> MUST be plain UTF-8 and is the cartridge-level bootstrap: what this tape is, the human-readable list of bags, the instruction that each subdirectory is a standalone bag whose own <code>ARCHI/README.txt</code> explains it, the selection rationale, and a contact. It terminates the representation-information recursion at the cartridge level, one rung above each bag's own README.</p>
 <p><strong>Serialization and write order.</strong></p>
