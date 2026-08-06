@@ -1,11 +1,230 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project Pergamon — Field Notes</title><meta name="description" content="Working notes, methods, and progress from the archive, published in the open."><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta property="og:title" content="Project Pergamon — Field Notes"><meta property="og:description" content="Working notes, methods, and progress from the archive, published in the open."><meta property="og:image" content="og-image.png"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:wght@400;500;600&display=swap"><link rel="stylesheet" href="styles.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap">
- <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-light.svg" alt=""><span><span class="wordmark">Project Pergamon</span><small>The Public AI Archive</small></span></a>
- <nav class="nav" id="nav" aria-label="Primary"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="field-notes.html" aria-current="page">Field Notes</a><a href="get-involved.html">Get Involved</a></nav>
- <div class="header-actions"><a class="btn btn-brick" href="get-involved.html#form">Support</a><button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">&#9776;</button></div>
-</div></header><div class="scrim" id="scrim"></div><main id="main"><section class="section surface-parchment hero"><div class="wrap"><span class="eyebrow">Field notes</span><h1>Field Notes.</h1><p class="lead">Preserving public AI models, so the future of intelligence can interpret its past.</p><p class="lead">Working notes, methods, and progress from the archive &mdash; published in the open as the work proceeds.</p></div></section><section class="section surface-parchment"><div class="wrap"><div class="empty"><p style="margin:0">No entries published yet.</p><p style="margin:.4rem 0 0;font-size:.95rem">The first notes will arrive alongside the first Archimedes proof.</p></div></div></section><section class="section surface-parchment"><div class="wrap prose"><h2>Follow the work.</h2><p>Tell us who you are and we&rsquo;ll keep you in the loop.</p><div class="btn-row"><a class="btn btn-brick" href="get-involved.html">Get involved</a></div></div></section></main><footer class="site-footer surface-chocolate section" style="padding-block:clamp(2.5rem,6vw,4rem)"><div class="wrap">
- <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-reversed.svg" alt="" style="height:40px"><span class="wordmark" style="font-size:1.3rem">Project Pergamon</span></a>
- <p class="foot-tagline">Preserving public AI models, so the future of intelligence can interpret its past.</p>
- <nav class="foot-nav" aria-label="Footer"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="field-notes.html">Field Notes</a><a href="get-involved.html">Get Involved</a></nav></div></footer>
-<script src="site.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Why &ldquo;Public&rdquo; AI? — Project Pergamon Field Notes</title>
+  <meta name="description"
+    content="A pragmatic vocabulary for AI model preservation: why &ldquo;open&rdquo; means too many things, and what Public AI actually means.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:title" content="Why &ldquo;Public&rdquo; AI? — Project Pergamon Field Notes">
+  <meta property="og:description"
+    content="A pragmatic vocabulary for AI model preservation: why &ldquo;open&rdquo; means too many things, and what Public AI actually means.">
+  <meta property="og:image" content="assets/field-notes-assets/field-notes-meme.png">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-08-05">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Spectral:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body><a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-light.svg" alt=""><span><span
+            class="wordmark">Project Pergamon</span><small>The Public AI Archive</small></span></a>
+      <nav class="nav" id="nav" aria-label="Primary"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a
+          href="field-notes.html" aria-current="page">Field Notes</a><a href="get-involved.html">Get Involved</a>
+      </nav>
+      <div class="header-actions"><a class="btn btn-brick" href="get-involved.html#form">Support</a><button
+          class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">&#9776;</button></div>
+    </div>
+  </header>
+  <div class="scrim" id="scrim"></div>
+  <main id="main">
+    <section class="section surface-brick hero">
+      <div class="wrap"><img class="emblem" src="assets/emblem-onband.svg" alt=""><span class="eyebrow">Project Pergamon</span>
+        <h1>Field Notes.</h1>
+        <p class="lead">Working notes, methods, and progress from the public AI archive.</p>
+      </div>
+    </section>
+
+    <section class="section surface-parchment">
+      <div class="wrap prose post">
+        <header class="post-header">
+          <span class="eyebrow">Essay</span>
+          <h2>Why &ldquo;Public&rdquo; AI?: A Pragmatic Vocabulary for AI Model Preservation</h2>
+          <p class="post-meta"><time datetime="2026-08-05">5 August 2026</time> &mdash; Zachary Sheldon, Archive founder</p>
+        </header>
+
+        <blockquote>
+          <p>&ldquo;Pragmatism is not a philosophical Weltanschauung [worldview] or a new metaphysics of truth and
+            reality. Rather it is a method of rendering ideas clear and distinct and ascertaining the meaning of words
+            and concepts.&rdquo;</p>
+          <cite>&mdash; Cornel West, <em>The American Evasion of Philosophy: A Genealogy of Pragmatism</em></cite>
+        </blockquote>
+
+        <p>What makes an AI system &ldquo;open&rdquo;? Ask two different groups of people and you'll get two different
+          answers. For the average developer working in American industry today, &ldquo;open&rdquo; means &ldquo;I get to
+          download something for free and use it how I want&rdquo;. To be a little more technical, &ldquo;open&rdquo;
+          refers to the model&rsquo;s weights: the sheets of numbers you need to get the system running on your own
+          hardware. But that quick-and-dirty definition won't cut the mustard with the Open Source Initiative, the
+          American nonprofit that tries to set the rules of these discussions. Under their Open Source AI Definition
+          (OSAID), a model isn't &ldquo;open source&rdquo; unless enough of its training code, data, and process gets
+          published for anyone to study and rebuild it.</p>
+
+        <p>So when developers say &ldquo;open,&rdquo; they mean, &ldquo;I can do what I want with this for free&rdquo;.
+          And when the OSI says &ldquo;open,&rdquo; they mean, &ldquo;I can see exactly how this was made&rdquo;.</p>
+
+        <p>Words mean what they do. But can a word do too much at once? It&rsquo;s my view that &ldquo;open&rdquo; is
+          being pulled in too many directions by too many demands for attention. Consider this meme that circulated during
+          the debates over what &ldquo;open&rdquo; can mean in AI:</p>
+
+        <figure>
+          <img src="assets/field-notes-assets/field-notes-meme.png"
+            alt="Venn diagram meme: Denny&rsquo;s and Nvidia overlap on &ldquo;Knows the importance of staying open&rdquo;"
+            loading="lazy">
+          <figcaption>A now-famous Venn diagram from Denny&rsquo;s Diner (July 2026).</figcaption>
+        </figure>
+
+        <p>For Denny&rsquo;s, &ldquo;open&rdquo; advertises 24-hour service. For Nvidia, &ldquo;open&rdquo; means
+          open-weights. The diagram is silly by design. Building a technical stack on open-weights models has nothing to
+          do with getting scrambled eggs at 3:00 AM (unless you stay up all night building AI systems and get hungry,
+          which I suppose makes you the audience Denny&rsquo;s wants to reach). And neither use has anything to do with
+          OpenAI, a company that distributes no open-weights or open-source models at all.</p>
+
+        <p>That&rsquo;s at least four uses of one word, all talking past each other:</p>
+
+        <ul>
+          <li><strong>OSAID:</strong> Open means weights, training data, checkpoints, and code can all be publicly viewed
+            and archived.</li>
+          <li><strong>Nvidia:</strong> Open means weights are freely distributed for practical use by developers.</li>
+          <li><strong>Denny&rsquo;s:</strong> Open means the restaurant is not closed.</li>
+          <li><strong>OpenAI:</strong> Open means our brand signals transparency and trust.</li>
+        </ul>
+
+        <p>Let&rsquo;s set aside Denny&rsquo;s and OpenAI, because neither is using &ldquo;open&rdquo; in the specific
+          sense of making AI system components visible to the public. That leaves the two definitions we started with:
+          open-weights (Nvidia and the developers) or open-everything (the OSAID).</p>
+
+        <p>Words mean what they do. And both uses of &ldquo;open&rdquo; do useful, defensible things in their specific
+          contexts. But what I want to suggest is that for digital preservation, neither usage helps.</p>
+
+        <p>On one side, models are more than their weights. A researcher in 2050 studying a model from 2024 will want to
+          link it to its training corpus or inspect its checkpoints. So we can't conflate &ldquo;open AI models&rdquo;
+          with &ldquo;models that offer open weights.&rdquo; Those are two different uses of &ldquo;open&rdquo; that invite
+          Denny&rsquo;s unserious thinking. On the other side, the OSAID sets the bar so high that vanishingly few
+          publicly released models actually clear it. The models that most of humanity calls open fail the OSAID test;
+          they ship under less exacting licenses like Apache 2.0. A standard that excludes most of the things it's
+          supposed to cover isn't much use as a standard. Worse, it opens the door to a legal wilderness of competing
+          licenses that researcher can&rsquo;t navigate without expensive lawyers, raising the barriers to access that an
+          archive exists to lower.</p>
+
+        <hr>
+
+        <h3>Means and ends</h3>
+
+        <p>The gap between these two &ldquo;opens&rdquo; tracks a distinction that runs through most political problems in
+          democratic societies: the distinction between means and ends. In this case, it&rsquo;s a distinction between
+          how a thing gets made and what it's good for once it exists. For developers and Nvidia, &ldquo;open&rdquo; is
+          about ends: new code ships, customers are satisfied, and the thing we call the innovation economy grows apace.
+          For the OSAID, &ldquo;open&rdquo; is about means: process, procedure, provenance.</p>
+
+        <p>Both matter, and neither can stand alone. A building is useful whether or not you can see the blueprints. But a
+          building constructed without regulation over its means and materials endangers everyone inside it. An AI system
+          is useful without access to its training procedure. But a company that trains without transparency may be
+          profiting off information that isn't theirs to use, or smuggling bad data into its models without users ever
+          knowing. Ends pursued with no regard for means are a recipe for disaster; means enforced so strictly that
+          nothing gets used are a recipe for irrelevance. The OSAID's emphasis on training transparency could, if broadly
+          adopted, resolve real mistrust toward companies that hide data collection behind smoke and mirrors. But
+          standards have a way of turning into gatekeepers, even when they weren't written to exclude anyone; And, in
+          practice, the OSAID narrows what institutions can justify collecting. No law says it has to be this way. It's
+          just that a vocabulary that grew up around open-source software has stopped making sense in a world where
+          Denny's is making memes about AI.</p>
+
+        <h3>Public AI</h3>
+
+        <p>This is why Pergamon advocates for a reset. We aren't going to tell you what &ldquo;open&rdquo; should mean.
+          We just observe that the word means too many things to too many people. And so, we've introduced a different
+          term: <strong>Public AI</strong>.</p>
+
+        <p>Public AI is AI that is available to the public. You don't pay to check a book out of a public library, you
+          don't pay an entrance fee at a public park, and you don't pay to download the working components of a Public
+          AI model. So Public keeps the developer's ends-first definition in that one big way. But Public differs from
+          the developers&rsquo; &ldquo;open&rdquo; in another big way: Public doesn't mean &ldquo;anything goes,&rdquo;
+          either. That&rsquo;s where Public refers to &ldquo;the public interest.&rdquo; It names the idea that certain
+          projects are worth doing because they potentially benefit everyone. A public library built from shoddy materials
+          that collapses on its readers is not a library built in the public interest; we need to know enough about a
+          system's means to know they won't conflict with Public ends.</p>
+
+        <p>Here the practice of historic preservation is instructive. A building can be condemned for habitation and
+          landmarked for study in the same year. Preservationists don't certify that a structure is safe to live in; they
+          certify that it's worth saving from demolition. Pergamon draws the same line. A model in our archive is fit to
+          study, which is not a judgment that it's fit to deploy. Some publicly distributed models were withdrawn by
+          their own makers precisely because they were judged unfit to inhabit. That makes them more important to
+          preserve, not less: future alignment researchers will want to examine exactly the systems their creators decided
+          to stop serving.</p>
+
+        <p>Pergamon serves those researchers, but we can no more control how our holdings get used than a library can
+          control what people do with its chemistry textbooks. The answer isn't to restrict access to the textbooks. It's
+          to keep good records of the collection.</p>
+
+        <h3>ARCHI</h3>
+
+        <p>That's where the <strong>ARCHI</strong> standard comes in. ARCHI is Pergamon's technical answer to the problem
+          of harmonizing means and ends in the public interest. It starts from a simple observation: the thing we call
+          &ldquo;AI&rdquo; isn't one thing at all. It's a bundle of artifacts, institutions, processes, and rules. Each
+          component can be more or less available for inspection and reproduction, independently of the others.</p>
+
+        <p>ARCHI creates a public record of what is shared and what is withheld. If a model ships with open weights but
+          no training data, its ARCHI record says exactly that. Weights and training data but no checkpoints? The record
+          says that too. Think of it as a catalog record that lists not just the title and author, but which chapters are
+          present, which are missing, and which pages have been torn out. ARCHI never renders an &ldquo;open&rdquo; or
+          &ldquo;not open&rdquo; verdict on a model as a whole. It only asks, component by component: is this specific
+          kind of information available to the public?</p>
+
+        <p>Now, I&rsquo;m far from the only one to recognize the need to make these different components legible. Since
+          2023, Andreas Liesenfeld and Mark Dingemanse at Radboud University have graded language models component by
+          component. Like me, they were concerned with irresponsible uses of the word &ldquo;open.&rdquo; But Liesenfeld
+          &amp; Dingemanse have different pragmatic ends. Their <a href="https://www.opensourcemodels.org/">European Open
+            Source AI Index</a> was built to serve the needs of policy makers, not interpretability scholars. And policy
+          requires simple, ready-made normative judgements, not nuanced, layered descriptive accounts. Max Weber famously
+          drew this line when he tried to define &ldquo;Science as a Vocation&rdquo;, saying that where scholars describe
+          the world, politicians make decisions about it. Thus, the European OSAI Index ranks models from most to least
+          &ldquo;open&rdquo;: That very harried word, which could be made to refer to anything from diners to data,
+          becomes a single standard every system gets measured against. Whereas ARCHI reserves judgment. It renders no
+          ranking and simply records the components as they were found <em>in situ</em>. The difference between the two
+          approaches is pragmatic, because it reflects what policy and scholarship each require. After all, where an index
+          scores what a release contains on a website, ARCHI writes the record into the archival package itself. <a
+            href="https://projectpergamon.org/technical-docs/">Learn more about the ARCHI specification</a>. Following
+          the BagIt standard used by the Library of Congress, a model that is missing its record doesn't validate. The
+          description can't be separated from the thing described.</p>
+
+        <hr>
+
+        <p>But if ARCHI is the catalog record, what's the book made of? In the next post, we'll dig into Pergamon's
+          namesake and why information survives best when it lives on multiple substrates. It&rsquo;s a story that will
+          take us from the latest headlines to ancient history, back to the early days of humans writing stuff down and
+          keeping it in libraries. Until then, thanks for your interest in our archive, please do <a
+            href="get-involved.html">get in touch if you&rsquo;d like to help with our mission</a>, and make sure to eat
+          a hearty breakfast (whatever time of day you end up having it).</p>
+      </div>
+    </section>
+
+    <section class="section surface-parchment">
+      <div class="wrap prose">
+        <h2>Follow the work.</h2>
+        <p>Tell us who you are and we&rsquo;ll keep you in the loop.</p>
+        <div class="btn-row"><a class="btn btn-brick" href="get-involved.html">Get involved</a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer surface-chocolate section" style="padding-block:clamp(2.5rem,6vw,4rem)">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img class="emblem" src="assets/emblem-reversed.svg" alt=""
+          style="height:40px"><span class="wordmark" style="font-size:1.3rem">Project Pergamon</span></a>
+      <p class="foot-tagline">Preserving public AI models, so the future of intelligence can interpret its past.</p>
+      <nav class="foot-nav" aria-label="Footer"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a
+          href="field-notes.html">Field Notes</a><a href="get-involved.html">Get Involved</a></nav>
+    </div>
+  </footer>
+  <script src="site.js"></script>
 </body>
+
 </html>
