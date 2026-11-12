@@ -5,7 +5,7 @@
 Technical documentation by **Project Pergamon** for ARCHI, an AI-native archival format. 
 
 Pergamon is an independent effort to preserve publicly released components that enable researchers to interpret the behavior of AI models (their weights, their provenance, and the
-record of how they came to be). This site opens a discussion on the standards that make such an effort possible possible.
+record of how they came to be). This site opens a discussion on the standards that make such an effort possible.
 
 ## What's here
 
@@ -21,7 +21,7 @@ record of how they came to be). This site opens a discussion on the standards th
 !!! note "Draft standard"
     This is v0.1 — a proof of concept, an opening dialogue, and an invitation to
     collaborate: a draft standard with a reference validator. We invite independent
-    implementations — a standard only one party can enforce isn't one yet.
+    implementations — a standard only one party can enforce isn't a standard yet.
     [Get involved](https://projectpergamon.org).
 
 ---
